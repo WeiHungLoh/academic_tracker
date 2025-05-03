@@ -4,3 +4,49 @@
   margin: 100;
   font-family: quicksand;
 }
+.signin, .signup {
+  max-width: 400px;
+  padding: 20px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.signin h2, .signup h2 {
+  font-size: 24px;
+  color: #f1356d;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.signin label, .signup label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+.signin input, .signup input {
+  width: 95%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1.5px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.signin button, .signup button {
+  width: 100%;
+  padding: 10px;
+  background-color: #f1356d;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.signin button:hover, signup button:hover {
+  background-color: #d12b5a;
+}
+.signin p, .signup p {
+  font-size: 14px;
+  color: red;
+  text-align: center;
+}
