@@ -1,18 +1,19 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Notification from "./Notification";
 
 const AddAssignment = () => {
-    const [assignment, setAssignment] = useState('');
-    const [assignmentDueDate, setDueDate] = useState('');
+    const [assignmentDesc, setAssignmentDesc] = useState('');
+    const [dueDate, setDueDate] = useState('');
     const navigate = useNavigate();
+    const [notification, setNotification] = useState(null);
 
     const handleAdd = async e => {
         e.preventDefault();
-        const assignmentDesc = assignment.trim();
-        const dueDate = assignmentDueDate.trim();
 
-        if (assignmentDesc === '' || assignmentDueDate === '') {
+        if (assignmentDesc === '' || dueDate === '') {
             alert('Please enter assignment description and its due date before adding')
+            return;
         }
 
         try {
@@ -32,7 +33,11 @@ const AddAssignment = () => {
             if (!res.ok) {
                 alert("Failed to add an assignment: " + message);
             }
-            navigate("/viewassignment");
+
+            setNotification("Successfully added an assignment");
+            setTimeout(() => {
+                setNotification(null);
+            }, 2000)
         } catch (error) {
             alert("Failed to add an assignment: " + error.message);
         }
@@ -44,15 +49,15 @@ const AddAssignment = () => {
 
             <label>Input assignment description</label>
             <input 
-                value={assignment}
-                onChange={e => setAssignment(e.target.value)}
+                value={assignmentDesc}
+                onChange={e => setAssignmentDesc(e.target.value)}
                 placeholder='Type your assignment description here'
                 required
             />
 
             <label>Input due date and time</label>
             <input 
-                value={assignmentDueDate}
+                value={dueDate}
                 onChange={e => setDueDate(e.target.value)}
                 type='datetime-local'
                 required
@@ -62,6 +67,7 @@ const AddAssignment = () => {
                 <button onClick={handleAdd}>Add assignment</button>
                 <button onClick={() => navigate('/viewassignments')}>View assignments</button>
             </div>
+            <Notification message={notification} />
         </div>
     )
 }
