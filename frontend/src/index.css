@@ -18,17 +18,13 @@
   text-align: center;
   margin-bottom: 30px;
 }
-.signin label, .signup label {
-  display: block;
-  margin-bottom: 8px;
-  color: #333;
-}
 .signin input, .signup input {
   width: 95%;
   padding: 10px;
+  margin-top: 15px;
   margin-bottom: 20px;
   border: 1.5px solid #ddd;
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 16px;
 }
 .signin button, .signup button {
@@ -42,11 +38,34 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.signin button:hover, signup button:hover {
+.signin button:hover, .signup button:hover {
   background-color: #d12b5a;
 }
 .signin p, .signup p {
-  font-size: 14px;
-  color: red;
+  cursor: pointer;
   text-align: center;
+  color: #007BFF;
+  margin-top: 20px;
+}
+.navbar {
+  padding: 50 px;
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  border-bottom: 1px solid #f2f2f2;
+}
+.navbar .links {
+  margin-left: auto;
+}
+.navbar a {
+  margin-left: 50px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  color: #f1356d;
+}
+.navbar h1 {
+  color: #4a148c;
+  font-size: 25px;
 }
