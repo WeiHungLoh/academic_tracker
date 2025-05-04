@@ -23,10 +23,11 @@ function App() {
 const RouteChangeDetector = () => {
   const location = useLocation();
 
-  if (location.pathname !== "/") {
+  if (location.pathname !== "/" && location.pathname !== "/signup") {
     return <Navbar />;
+  } else {
+    return null;
   }
-  return null;
 }
 
 export default App;

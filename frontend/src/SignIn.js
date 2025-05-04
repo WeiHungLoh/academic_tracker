@@ -57,7 +57,6 @@ const SignIn = () => {
                 />
 
                 <button type="submit">Login</button>
-
                 <p onClick={toggleSignUp}>
                     Don’t have an account? Create one
                 </p>

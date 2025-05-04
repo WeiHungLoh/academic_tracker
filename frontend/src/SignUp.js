@@ -24,7 +24,7 @@ const SignUp = () => {
                 return;
             }
 
-            alert("Successfully signed up! Redirecting you to login page");
+            alert("Successfully signed up! Redirecting  you to login page");
             setTimeout(() => {
                 navigate("/");
               }, 1000);
