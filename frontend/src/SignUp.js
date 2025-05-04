@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Notification from './Notification';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [notification, setNotification] = useState(null);
 
     const handleSignUp = async (e) => {
         e.preventDefault();
@@ -24,10 +26,11 @@ const SignUp = () => {
                 return;
             }
 
-            alert("Successfully signed up! Redirecting  you to login page");
+            setNotification("Sign up succesful! Redirecting you to login page")
             setTimeout(() => {
+                setNotification(null);
                 navigate("/");
-              }, 1000);
+            }, 1500);
         } catch (error) {
             alert("Failed to signed up. " + error.message);
         }
@@ -63,8 +66,8 @@ const SignUp = () => {
                 <p onClick={toggleSignIn}>
                     Already have an account? Login here
                 </p>
-
             </form>
+            <Notification message={notification}/>
         </div>
     );
 
