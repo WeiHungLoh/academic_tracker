@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = process.env.JWT_SECRET;
+const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
 
 const verifyToken = (req, res, next) => {
   // Split the current "Bearer <token>" under headers authorisation section to get token
@@ -10,8 +10,8 @@ const verifyToken = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
-    // Store existing id, email, new iat and 
+    const decoded = jwt.verify(token, ACCESS_TOKEN_SECRET);
+    // Store existing id, email, new iat and expiry
     req.user = decoded; 
     next();
   } catch (err) {
