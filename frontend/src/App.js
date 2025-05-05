@@ -1,9 +1,10 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom';
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import SignIn from "./Authentication/SignIn";
+import SignUp from "./Authentication/SignUp";
 import Navbar from "./Navbar";
-import AddAssignment from "./AddAssignment";
+import AddAssignment from "./Assignment/AddAssignment";
+import ViewAssignment from "./Assignment/ViewAssignment";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/addassignment" element={<AddAssignment />} />
+          <Route path="/viewassignments" element={<ViewAssignment />} />
         </Routes>
       </BrowserRouter>
     </div>

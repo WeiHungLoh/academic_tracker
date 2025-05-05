@@ -110,3 +110,49 @@
   border-radius: 8px;
   margin-top: 30px;
 }
+.assignment-list {
+  max-width: 690px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.assignment-list .assignment {
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  /* justify-content: space-between;
+  align-items: center; */
+}
+.assignment-list .button-group {
+  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color:#fff;
+  gap: 10px;
+}
+.assignment-list .button-group button {
+  background-color:#f1356d;
+  border: 0;
+  border-radius: 10px;
+  color:#fff;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+.assignment-list .assignment-content {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+.assignment-list .assignment-content h2 {
+  margin: 0;
+  font-size: 24px;
+  color: black;
+}
+.assignment-list .assignment-content p:last-of-type {
+  font-weight: bold;
+  color: #f1356d;
+  margin-top: 5px;
+}
