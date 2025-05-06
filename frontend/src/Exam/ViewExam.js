@@ -8,7 +8,7 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const ViewExam = () => {
     const navigate = useNavigate();
-    const { data: fetchedExams, refetch } = useFetchData("/exam/view");
+    const { data: fetchedExams, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/exam/view`);
     const [exams, setExams] = useState(null);
 
     useEffect(() => {
@@ -19,7 +19,7 @@ const ViewExam = () => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`/exam/${id}`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {
                 method: 'DELETE',
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -35,7 +35,7 @@ const ViewExam = () => {
 
     const toggleStatus = async (exam) => {
         try {
-            const res = await fetch("/exam/togglestatus", {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/togglestatus`, {
                 method: 'PUT',
                 headers: {
                     "Content-type": "application/json",

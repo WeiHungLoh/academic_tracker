@@ -18,7 +18,7 @@ const AddAssignment = () => {
         }
 
         try {
-            const res = await fetch('/exam/add',
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/add`,
                 {
                     method: "POST",
                     headers:
