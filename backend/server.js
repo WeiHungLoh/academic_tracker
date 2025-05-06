@@ -14,7 +14,8 @@ app.use("/auth", require("./routes/auth"));
 app.use(verifyToken);
 
 // Routes below are protected
-// app.use("/exam", require("./routes/exam"));
+app.use("/exam", require("./routes/exam"));
 app.use("/assignment", require("./routes/assignment"));
 
-app.listen(5005);
+const PORT = process.env.PORT || 5005;
+app.listen(PORT);
