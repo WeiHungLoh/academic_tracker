@@ -28,13 +28,10 @@ const AddAssignment = () => {
                     body: JSON.stringify({ assignmentDesc, dueDate })
                 }
             );
-            
             const message = res.text();
-            if (!res.ok) {
-                alert("Failed to add an assignment: " + message);
-            }
+            setNotification(message);
 
-            setNotification("Successfully added an assignment");
+            // Removes notification bar after 2 seconds
             setTimeout(() => {
                 setNotification(null);
             }, 2000)

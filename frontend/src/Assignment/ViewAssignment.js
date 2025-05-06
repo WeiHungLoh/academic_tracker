@@ -8,14 +8,13 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const ViewAssignment = () => {
     const navigate = useNavigate();
-    const { data: fetchedAssignments } = useFetchData("/assignment/view");
+    const { data: fetchedAssignments, refetch } = useFetchData("/assignment/view");
     const [assignments, setAssignments] = useState(null);
 
-    // Refreshes UI whenever new assignments are fetched
     useEffect(() => {
         if (fetchedAssignments) {
             setAssignments(fetchedAssignments)
-        };
+        };  
     }, [fetchedAssignments]);
 
     const handleDelete = async (id) => {
@@ -26,20 +25,31 @@ const ViewAssignment = () => {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
             });
-    
-            const message = await res.text(); 
-            if (!res.ok) {
-                alert(message);
-                return;
-            }
 
-            // Shows assignments that have not been deleted 
-            setAssignments(assignments.filter(assignment => assignment._id != id));
+            // Refreshes UI to show remaining undeleted assignments
+            refetch();
         } catch (error) {
             alert(error.message);
         }
     };
-    
+
+    const toggleStatus = async (assignment) => {
+        try {
+            const res = await fetch("/assignment/togglestatus", {
+                method: 'PUT',
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                },
+                body: JSON.stringify({ assignment })
+            });
+
+            // Refreshes UI to show assignments with new completion status
+            refetch();
+        } catch (error) {
+            alert(error.message);
+        }
+    };
 
     return (
         <div className="assignment-list">
@@ -59,7 +69,7 @@ const ViewAssignment = () => {
                     </div>
 
                     <div className="button-group">
-                        <button /*onClick={() => toggleStatus(assignment)}*/ style={{
+                        <button onClick={() => toggleStatus(assignment)} style={{
                             backgroundColor: assignment.status ? 'green' : '#f1356d',
                             color: 'white',
                             border: '0',
@@ -76,6 +86,7 @@ const ViewAssignment = () => {
                     </div>
                 </div>
             ))}
+
             <div className="assignment-button">
                 <button onClick={() => navigate('/addassignment')}>Add new assignment</button>
             </div>
