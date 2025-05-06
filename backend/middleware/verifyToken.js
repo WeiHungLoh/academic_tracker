@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
 
 const verifyToken = (req, res, next) => {
-  // Extract JWT from the Authorization header in the format: "Bearer <token>".
+  // Extracts JWT from the Authorization header in the format: "Bearer <token>".
   // The token is sent by the frontend (after sign in) and included in requests 
   // to protected routes like /exam or /assignment.
   // It is initially saved in localStorage upon successful sign-in.
