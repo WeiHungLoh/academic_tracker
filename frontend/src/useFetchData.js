@@ -26,7 +26,7 @@ const useFetchData = (collectionName) => {
         }
     };
 
-    // Dependency array is empty since refetch is called everytime we refresh UI     
+    // Dependency array is empty since refetch is called everytime we refresh UI.
     useEffect(() => {
         getData();
     }, []);

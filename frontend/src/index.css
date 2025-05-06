@@ -69,33 +69,33 @@
   color: #4a148c;
   font-size: 25px;
 }
-.add-assignment {
+.add-assignment, .add-exam {
   max-width: 600px;
   margin: 0 auto;
   text-align: center;
 }
-.add-assignment label {
+.add-assignment label, .add-exam label {
   justify-content: left;
   display: flex;
 }
-.add-assignment h2 {
+.add-assignment h2, .add-exam h2 {
   font-size: 20px;
   margin-bottom: 20px;
 }
-.add-assignment input {
+.add-assignment input, .add-exam input {
   width: 100%;
   padding: 6px 10px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1.5px solid #ddd;
 }
-.add-assignment .submit-button {
+.add-assignment .submit-button, .add-exam .submit-button {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   gap: 70px; 
 }
-.add-assignment button {
+.add-assignment button, .add-exam button {
   color:#ddd;
   background:#f1356d;
   border: 0;
@@ -110,20 +110,20 @@
   border-radius: 8px;
   margin-top: 30px;
 }
-.assignment-list {
+.assignment-list, .exam-list {
   max-width: 690px;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.assignment-list .assignment {
+.assignment-list .assignment, .exam-list .exam {
   width: 100%;
   padding: 20px;
   border-bottom: 1px solid #ddd;
   display: flex;
 }
-.assignment-list .button-group {
+.assignment-list .button-group, .exam-list .button-group {
   margin-left: auto;
   cursor: pointer;
   display: flex;
@@ -131,7 +131,7 @@
   color:#fff;
   gap: 10px;
 }
-.assignment-list .button-group button {
+.assignment-list .button-group button, .exam-list .button-group button {
   background-color:#f1356d;
   border: 0;
   border-radius: 10px;
@@ -139,22 +139,22 @@
   cursor: pointer;
   padding: 8px 10px;
 }
-.assignment-list .assignment-content {  
+.assignment-list .assignment-content, .exam-list .exam-content {  
   margin: 0;
   font-size: 14px;
   color: #666;
 }
-.assignment-list .assignment-content h2 {
+.assignment-list .assignment-content h2, .exam-list .exam-content h2 {
   margin: 0;
   font-size: 24px;
   color: black;
 }
-.assignment-list .assignment-content p:last-of-type {
+.assignment-list .assignment-content p:last-of-type, .exam-list .exam-content p:last-of-type {
   font-weight: bold;
   color: #f1356d;
   margin-top: 5px;
 }
-.assignment-list .assignment-button button {
+.assignment-list .assignment-button button, .exam-list .exam-button button {
   background-color:#f1356d;
   border: 0;
   border-radius: 10px;

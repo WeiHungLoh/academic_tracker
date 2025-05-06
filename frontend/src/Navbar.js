@@ -8,7 +8,7 @@ const Navbar = () => {
     <h1>Academic Tracker</h1>
     <div className="links">
         <Link to="/addassignment">Assignment Tracker</Link>
-        <Link to="/exams">Exam Tracker</Link>
+        <Link to="/addexam">Exam Tracker</Link>
         <Link to="/">Logout</Link>
     </div>
     </nav>

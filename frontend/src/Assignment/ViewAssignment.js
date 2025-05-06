@@ -60,10 +60,10 @@ const ViewAssignment = () => {
 
                     <div className="assignment-content">
                         <h2>{assignment.assignmentDesc}</h2>
-                        <p>Due Date: {DateFormatter(assignment.dueDate).formattedDate}</p>
-                        <p>Time left: {DateFormatter(assignment.dueDate).timeRemaining}</p>
+                        <p>Due Date: { DateFormatter(assignment.dueDate).formattedDate }</p>
+                        <p>Time left: { DateFormatter(assignment.dueDate).timeRemaining }</p>
                         <FontAwesomeIcon
-                            icon={assignment.status ? faCheckCircle : faTimesCircle}
+                            icon={ assignment.status ? faCheckCircle : faTimesCircle }
                             style={{ color: assignment.status ? '#28a745' : '#dc3545', marginRight: '8px' }}
                         />
                     </div>

@@ -5,6 +5,8 @@ import SignUp from "./Authentication/SignUp";
 import Navbar from "./Navbar";
 import AddAssignment from "./Assignment/AddAssignment";
 import ViewAssignment from "./Assignment/ViewAssignment";
+import AddExam from "./Exam/AddExam";
+import ViewExam from "./Exam/ViewExam";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/addassignment" element={<AddAssignment />} />
           <Route path="/viewassignments" element={<ViewAssignment />} />
+          <Route path="/addexam" element={<AddExam />} />
+          <Route path="/viewexams" element={<ViewExam />} />
         </Routes>
       </BrowserRouter>
     </div>
