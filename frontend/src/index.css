@@ -58,7 +58,13 @@
 .navbar .links {
   margin-left: auto;
 }
-.navbar a {
+.navbar .active {
+  color: red;
+  margin-left: 50px;
+  font-weight: bold;
+}
+.navbar .inactive {
+  color: blue;
   margin-left: 50px;
   text-decoration: none;
 }

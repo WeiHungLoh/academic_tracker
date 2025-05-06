@@ -1,15 +1,36 @@
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
     const location = useLocation();
+    const currLocation = location.pathname;
+
+    const isAssignmentActive = (currentLocation) => {
+        if (currentLocation === "/addassignment" || currentLocation === "/viewassignments") {
+            return true;
+        } 
+        return false;
+    }
+
+    const isExamActive = (currentLocation) => {
+        if (currentLocation === "/addexam" || currentLocation === "/viewexams") {
+            return true;
+        } 
+        return false;
+    }
 
     return ( 
     <nav className="navbar">
     <h1>Academic Tracker</h1>
     <div className="links">
-        <Link to="/addassignment">Assignment Tracker</Link>
-        <Link to="/addexam">Exam Tracker</Link>
-        <Link to="/">Logout</Link>
+        <NavLink to="/addassignment" className={isAssignmentActive(currLocation) ? "active" : "inactive"}>
+            Assignment Tracker
+        </NavLink>
+
+        <NavLink to="/addexam" className={isExamActive(currLocation) ? "active" : "inactive"}>
+            Exam Tracker
+        </NavLink>
+
+        <NavLink to="/" className="inactive">Logout</NavLink>
     </div>
     </nav>
      );
