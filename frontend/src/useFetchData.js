@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallBack } from 'react';
 
 const useFetchData = (collectionName) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState("");
 
-    const getData = async () => {
+    const getData = useCallBack(async () => {
         try {
             const res = await fetch(collectionName, {
                 method: 'GET',
@@ -24,12 +24,11 @@ const useFetchData = (collectionName) => {
         } catch (error) {
             setError(error.message);
         }
-    };
+    });
 
-    // Dependency array is empty since refetch is called everytime we refresh UI.
     useEffect(() => {
         getData();
-    }, []);
+    }, [getData]);
 
     return { data, error, refetch: getData };
 }
