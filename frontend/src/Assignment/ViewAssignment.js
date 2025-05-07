@@ -19,7 +19,7 @@ const ViewAssignment = () => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/assignment/${id}`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/assignment/${id}`, {
                 method: 'DELETE',
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -35,7 +35,7 @@ const ViewAssignment = () => {
 
     const toggleStatus = async (assignment) => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/assignment/togglestatus`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/assignment/togglestatus`, {
                 method: 'PUT',
                 headers: {
                     "Content-type": "application/json",

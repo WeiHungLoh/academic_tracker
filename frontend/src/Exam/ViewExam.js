@@ -19,7 +19,7 @@ const ViewExam = () => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {
                 method: 'DELETE',
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -35,7 +35,7 @@ const ViewExam = () => {
 
     const toggleStatus = async (exam) => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/togglestatus`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/exam/togglestatus`, {
                 method: 'PUT',
                 headers: {
                     "Content-type": "application/json",
