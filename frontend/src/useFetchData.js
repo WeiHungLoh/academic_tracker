@@ -1,10 +1,10 @@
-import { useState, useEffect, useCallBack } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 const useFetchData = (collectionName) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState("");
 
-    const getData = useCallBack(async () => {
+    const getData = useCallback(async () => {
         try {
             const res = await fetch(collectionName, {
                 method: 'GET',
@@ -24,7 +24,7 @@ const useFetchData = (collectionName) => {
         } catch (error) {
             setError(error.message);
         }
-    });
+    }, [collectionName]);
 
     useEffect(() => {
         getData();
