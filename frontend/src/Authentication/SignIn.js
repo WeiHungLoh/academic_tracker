@@ -16,7 +16,7 @@ const SignIn = () => {
                     body: JSON.stringify({ email, password })
                 }
             );
-            
+
             const data = await res.json();
             if (!res.ok) {
                 alert("Failed to sign in: " + data.message);
