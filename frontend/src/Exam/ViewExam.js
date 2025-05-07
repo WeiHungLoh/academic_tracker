@@ -61,7 +61,7 @@ const ViewExam = () => {
                     <div className="exam-content">
                         <h2>{exam.examDesc}</h2>
                         <p>Due Date: { DateFormatter(exam.dueDate).formattedDate }</p>
-                        <p>Duration: { exam.duration }</p>
+                        <p>Duration: { exam.duration } minutes</p>
                         <p>Time left: { DateFormatter(exam.dueDate).timeRemaining }</p>
                         <FontAwesomeIcon
                             icon={ exam.status ? faCheckCircle : faTimesCircle }
