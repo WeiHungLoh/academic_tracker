@@ -1,8 +1,9 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const location = useLocation();
     const currLocation = location.pathname;
+    const navigate = useNavigate();
 
     const isAssignmentActive = (currentLocation) => {
         if (currentLocation === "/addassignment" || currentLocation === "/viewassignments") {
@@ -10,6 +11,11 @@ const Navbar = () => {
         } 
         return false;
     }
+
+    const handleSignOut = () => {
+        localStorage.removeItem("token");
+        navigate("/");
+    };
 
     const isExamActive = (currentLocation) => {
         if (currentLocation === "/addexam" || currentLocation === "/viewexams") {
@@ -30,7 +36,7 @@ const Navbar = () => {
             Exam Tracker
         </NavLink>
 
-        <NavLink to="/" className="inactive">Logout</NavLink>
+        <NavLink to="/" className="inactive" onClick={handleSignOut} >Logout</NavLink>
     </div>
     </nav>
      );
