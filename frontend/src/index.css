@@ -169,3 +169,13 @@
   padding: 8px 10px;
   margin-top: 20px;
 }
+.invalid-page {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 200px;
+  color: #f1356d
+}
+.invalid-page a {
+  text-decoration: none;
+  color: #007BFF
+}
