@@ -8,30 +8,27 @@ import ViewAssignment from "./Assignment/ViewAssignment";
 import AddExam from "./Exam/AddExam";
 import ViewExam from "./Exam/ViewExam";
 import ProtectedRoutes from "./ProtectedRoutes";
+import InvalidPage from "./InvalidPage"
 
 function App() {
-  const RouteChangeDetector = () => {
-    const location = useLocation();
-  
-    if (location.pathname !== "/" && location.pathname !== "/signup") {
-      return <Navbar />;
-    } else {
-      return null;
-    }
-  }  
+  const location = useLocation();
+  // Stores all routes except for sign in and sign up 
+  const navbarRoutes = ["/addassignment", "/viewassignments", "/addexam", "/viewexams"];
+  const showNavbar = navbarRoutes.includes(location.pathname);
 
   return (
     <div className="App">
-        <RouteChangeDetector />
+        {showNavbar && <Navbar />}
         <Routes>
           <Route path="/" element={<SignIn />} />
-          
+          <Route path="/signup" element={<SignUp />} />
+
           <Route element={<ProtectedRoutes />}>
-            <Route path="/signup" element={<SignUp />} />
             <Route path="/addassignment" element={<AddAssignment />} />
             <Route path="/viewassignments" element={<ViewAssignment />} />
             <Route path="/addexam" element={<AddExam />} />
             <Route path="/viewexams" element={<ViewExam />} />
+            <Route path="*" element={<InvalidPage />} />
           </Route>
         </Routes>
     </div>
