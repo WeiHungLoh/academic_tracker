@@ -1,14 +1,13 @@
 // Represents an entry point to mount backend components like models and routes
 const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
 const connectDB = require("./db");
 const verifyToken = require("./middleware/verifyToken");
 
-connectDB();
 const app = express();
 app.use(cors());
 app.use(express.json());
+connectDB();
 
 app.use("/auth", require("./routes/auth"));
 app.use(verifyToken);

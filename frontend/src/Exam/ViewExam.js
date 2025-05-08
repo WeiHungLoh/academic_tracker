@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetchData from "../useFetchData";
 import DateFormatter from "../Formatter/DateFormatter";
@@ -9,14 +8,8 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 const ViewExam = () => {
     const navigate = useNavigate();
     const { data: fetchedExams, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/exam/view`);
-    const [exams, setExams] = useState(null);
-
-    useEffect(() => {
-        if (fetchedExams) {
-            setExams(fetchedExams)
-        };  
-    }, [fetchedExams]);
-
+    const exams = fetchedExams; 
+ 
     const handleDelete = async (id) => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {

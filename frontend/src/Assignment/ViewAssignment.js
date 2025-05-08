@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useFetchData from "../useFetchData";
 import DateFormatter from "../Formatter/DateFormatter";
@@ -9,13 +8,7 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 const ViewAssignment = () => {
     const navigate = useNavigate();
     const { data: fetchedAssignments, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/assignment/view`);
-    const [assignments, setAssignments] = useState(null);
-
-    useEffect(() => {
-        if (fetchedAssignments) {
-            setAssignments(fetchedAssignments)
-        };  
-    }, [fetchedAssignments]);
+    const assignments = fetchedAssignments;
 
     const handleDelete = async (id) => {
         try {
