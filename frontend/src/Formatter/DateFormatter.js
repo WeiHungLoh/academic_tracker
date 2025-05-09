@@ -1,7 +1,7 @@
 const DateFormatter = (dueDate) => {
     const date = new Date(dueDate);
 
-    const formattedDate = date.toLocaleDateString("en-GB", {
+    const formattedDate = date.toLocaleString(undefined, {
         day: "numeric",
         month: "long",
         year: "numeric",

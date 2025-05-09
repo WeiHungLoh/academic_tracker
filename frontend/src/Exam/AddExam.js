@@ -11,6 +11,9 @@ const AddAssignment = () => {
 
     const handleAdd = async e => {
         e.preventDefault();
+        const [year, month, day, hour, minute] = dueDate.split(/[-T:]/);
+        // Decrements month by 1 since month starts from 0
+        const localDate = new Date(year, month - 1, day, hour, minute);
 
         if (examDesc === '' || dueDate === '') {
             alert('Please enter assignment description and its due date before adding')
@@ -26,7 +29,7 @@ const AddAssignment = () => {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${localStorage.getItem("token")}`
                     },
-                    body: JSON.stringify({ examDesc, dueDate, duration })
+                    body: JSON.stringify({ examDesc, dueDate: localDate, duration })
                 }
             );
             const message = res.text();
