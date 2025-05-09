@@ -8,6 +8,7 @@ const AddAssignment = () => {
     const navigate = useNavigate();
     const [notification, setNotification] = useState(null);
 
+    // datetime-local displays in the format of YYYY-MM-DDThh:mm:sssZ
     const [year, month, day, hour, minute] = dueDate.split(/[-T:]/);
     // Decrements month by 1 since month starts from 0
     const localDate = new Date(year, month - 1, day, hour, minute);

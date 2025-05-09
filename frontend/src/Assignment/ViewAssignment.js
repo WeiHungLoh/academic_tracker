@@ -7,8 +7,7 @@ import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 
 const ViewAssignment = () => {
     const navigate = useNavigate();
-    const { data: fetchedAssignments, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/assignment/view`);
-    const assignments = fetchedAssignments;
+    const { data: assignments, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/assignment/view`);
 
     const handleDelete = async (id) => {
         try {
