@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { IoMdEyeOff } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const [visible, setVisiblity] = useState(false);
 
     const handleSignIn = async (e) => {
         e.preventDefault();
@@ -35,6 +38,10 @@ const SignIn = () => {
         navigate("/signup");
     }
 
+    const showVisiblity = () => {
+        return visible ? <IoEye /> : <IoMdEyeOff />;
+    }
+
     return (
         <div className="signin">
             <h2>Sign in to Academic Tracker</h2>
@@ -49,18 +56,22 @@ const SignIn = () => {
                 />
 
                 <label>Password</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                />
+                <div className="password-wrapper">
+                    <input
+                        type={visible ? "text" : "password"}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        required
+                    />
+                    <div className="toggle-visibility" onClick={() => setVisiblity(!visible)}>
+                        {showVisiblity()} 
+                    </div>
+                </div>
 
                 <button type="submit">Login</button>
                 <p onClick={toggleSignUp}>
                     Don’t have an account? Create one
                 </p>
-
             </form>
         </div>
     );

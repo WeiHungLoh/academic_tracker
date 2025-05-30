@@ -47,6 +47,15 @@
   color: #007BFF;
   margin-top: 20px;
 }
+.signin .password-wrapper, .signup .password-wrapper {
+  position: relative;
+}
+.signin .toggle-visibility, .signup .toggle-visibility {
+  position: absolute;
+  top: 40%;
+  right: 10px;
+  cursor: pointer;
+}
 .navbar {
   padding: 50 px;
   display: flex;

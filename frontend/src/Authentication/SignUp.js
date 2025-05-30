@@ -1,21 +1,24 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Notification from '../Notification';
+import { IoMdEyeOff } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const [notification, setNotification] = useState(null);
+    const [visible, setVisiblity] = useState(false);
 
     const handleSignUp = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`, 
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`,
                 {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password })
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password })
                 }
             );
 
@@ -40,6 +43,10 @@ const SignUp = () => {
         navigate("/");
     }
 
+    const showVisiblity = () => {
+        return visible ? <IoEye /> : <IoMdEyeOff />;
+    }
+
     return (
         <div className="signup">
             <h2>Sign up for Academic Tracker</h2>
@@ -54,12 +61,17 @@ const SignUp = () => {
                 />
 
                 <label>Password</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                />
+                <div className="password-wrapper">
+                    <input
+                        type={visible ? "text" : "password"}
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        required
+                    />
+                    <div className="toggle-visibility" onClick={() => setVisiblity(!visible)}>
+                        {showVisiblity()}
+                    </div>
+                </div>
 
                 <button type="submit">Sign up</button>
 
@@ -67,7 +79,7 @@ const SignUp = () => {
                     Already have an account? Login here
                 </p>
             </form>
-            <Notification message={notification}/>
+            <Notification message={notification} />
         </div>
     );
 
