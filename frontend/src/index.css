@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
-
 * {
-  margin: 100;
   font-family: quicksand;
 }
 .signin, .signup {
@@ -63,7 +61,6 @@
   padding-left: 10px;
 }
 .navbar {
-  padding: 50 px;
   display: flex;
   align-items: center;
   max-width: 1000px;
@@ -72,6 +69,25 @@
 }
 .navbar .links {
   margin-left: auto;
+  display: flex;
+}
+.navbar .assignment-wrapper, .navbar .exam-wrapper {
+  position: relative;
+}
+.navbar .assignment-wrapper .assignment-dropdown,
+.navbar .exam-wrapper .exam-dropdown {
+  display: none;
+}
+.navbar .assignment-wrapper:hover .assignment-dropdown,
+.navbar .exam-wrapper:hover .exam-dropdown {
+  text-decoration: none;
+  margin-left: 50px;
+  display: flex;
+  box-shadow: 10 10px 10px rgba(0,0,0,0.15);
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  position: absolute;
 }
 .navbar .active {
   color: red;
