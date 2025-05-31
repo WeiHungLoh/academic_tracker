@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Notification from '../Notification';
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
+import { GoAlertFill } from "react-icons/go";
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -79,6 +80,14 @@ const SignUp = () => {
                     Already have an account? Login here
                 </p>
             </form>
+            <div className="notice-wrapper">
+                <span className="alert-icon">
+                    <GoAlertFill />
+                </span>
+                {"  "}If the sign-up process seems to hang after you click the sign in button, 
+                please wait up to 30 seconds. This may happen because the backend is hosted on a free tier, 
+                which can take time to wake up after periods of inactivity.
+            </div>
             <Notification message={notification} />
         </div>
     );

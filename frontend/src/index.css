@@ -56,6 +56,12 @@
   right: 10px;
   cursor: pointer;
 }
+.signin .notice-wrapper, .signup .notice-wrapper {
+  background-color: #e6f4ff;
+  color: #084298;
+  border-left: 4px solid #0d6efd;
+  padding-left: 10px;
+}
 .navbar {
   padding: 50 px;
   display: flex;

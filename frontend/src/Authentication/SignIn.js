@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
+import { GoAlertFill } from "react-icons/go";
 
 const SignIn = () => {
     const [email, setEmail] = useState('');
@@ -68,11 +69,19 @@ const SignIn = () => {
                     </div>
                 </div>
 
-                <button type="submit">Login</button>
+                <button type="submit">Sign in</button>
                 <p onClick={toggleSignUp}>
                     Don’t have an account? Create one
                 </p>
             </form>
+            <div className="notice-wrapper">
+                <span className="alert-icon">
+                    <GoAlertFill />
+                </span>
+                {"  "}If the sign-in process seems to hang after you click the sign in button, 
+                please wait up to 30 seconds. This may happen because the backend is hosted on a free tier, 
+                which can take time to wake up after periods of inactivity.
+            </div>
         </div>
     );
 };
