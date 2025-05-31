@@ -84,7 +84,7 @@ const SignUp = () => {
                 <span className="alert-icon">
                     <GoAlertFill />
                 </span>
-                {"  "}If the sign-up process seems to hang after you click the sign in button, 
+                {"  "}If the sign-up process seems to hang after you click the sign up button, 
                 please wait up to 30 seconds. This may happen because the backend is hosted on a free tier, 
                 which can take time to wake up after periods of inactivity.
             </div>
