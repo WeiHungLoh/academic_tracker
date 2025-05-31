@@ -28,13 +28,25 @@ const Navbar = () => {
     <nav className="navbar">
         <h1>Academic Tracker</h1>
         <nav className="links">
-            <NavLink to="/addassignment" className={isAssignmentActive(currLocation) ? "active" : "inactive"}>
-                Assignment Tracker
-            </NavLink>
+            <nav className="assignment-wrapper">
+                <NavLink to="/addassignment" className={isAssignmentActive(currLocation) ? "active" : "inactive"}>
+                    Assignment Tracker
+                </NavLink>
 
-            <NavLink to="/addexam" className={isExamActive(currLocation) ? "active" : "inactive"}>
-                Exam Tracker
-            </NavLink>
+                <NavLink to="/viewassignments" className="assignment-dropdown">
+                    View Assignment
+                </NavLink>
+            </nav>
+
+            <nav className="exam-wrapper">
+                <NavLink to="/addexam" className={isExamActive(currLocation) ? "active" : "inactive"}>
+                    Exam Tracker
+                </NavLink>
+
+                <NavLink to="/viewexams" className="exam-dropdown">
+                    View Exam
+                </NavLink>
+            </nav>
 
             <NavLink to="/" className="inactive" onClick={handleSignOut} >Logout</NavLink>
         </nav>
