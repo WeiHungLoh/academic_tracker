@@ -25,6 +25,23 @@ const ViewExam = () => {
         }
     };
 
+     const handleDeleteAll = async() => {
+        try {
+            await fetch(`${process.env.REACT_APP_API_URL}/exam/deleteall`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    }
+                }
+            )
+            
+            refetch();
+        } catch (error) {
+            alert(error.message);
+        }
+     }
+
     const toggleStatus = async (exam) => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/exam/togglestatus`, {
@@ -74,6 +91,7 @@ const ViewExam = () => {
 
             <div className="exam-button">
                 <button onClick={() => navigate('/addexam')}>Add new exam</button>
+                <button onClick={() => handleDeleteAll()}>Delete all exams</button>
             </div>
         </div>
     );
