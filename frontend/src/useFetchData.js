@@ -4,13 +4,13 @@ const useFetchData = (collectionName) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState("");
 
+    // getData function changes when collectionName changes
     const getData = useCallback(async () => {
         try {
             const res = await fetch(collectionName, {
                 method: 'GET',
                 headers:
                 {
-                    "Content-Type": "application/json",
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
                 }
             });
@@ -25,7 +25,8 @@ const useFetchData = (collectionName) => {
             setError(error.message);
         }
     }, [collectionName]);
-
+    
+    // getData is called whenenever getData changes
     useEffect(() => {
         getData();
     }, [getData]);
