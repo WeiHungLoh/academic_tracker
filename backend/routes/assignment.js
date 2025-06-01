@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 const Assignment = require("../models/assignment");
@@ -44,7 +43,6 @@ router.put("/togglestatus", async (req, res) => {
 });
 
 router.delete("/deleteall", async (req, res) => {
-    // Since assignment object ID has been passed to param, retrieve it
     const userId = req.user.id;
 
     try {
