@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const express = require("express");
 const router = express.Router();
 const Assignment = require("../models/assignment");
@@ -34,6 +35,7 @@ router.put("/togglestatus", async (req, res) => {
         const assignment = await Assignment.findByIdAndUpdate(
             id,
             { status: !currStatus },
+            { new: true }
         );
         return res.status(200).json({ assignment }); 
     } catch (error) {
@@ -41,9 +43,22 @@ router.put("/togglestatus", async (req, res) => {
     }
 });
 
+router.delete("/deleteall", async (req, res) => {
+    // Since assignment object ID has been passed to param, retrieve it
+    const userId = req.user.id;
+
+    try {
+        await Assignment.deleteMany({ userId: userId });
+        res.status(200).send("Deleted all assignments");
+    } catch (error) {
+        res.status(500).send("Error deleting assignment");
+    }
+});
+
 router.delete("/:id", async (req, res) => {
     // Since assignment object ID has been passed to param, retrieve it
     const { id } = req.params;
+
     try {
         const assignment = await Assignment.findByIdAndDelete(id);
         res.status(200).send("Deleted assignment");

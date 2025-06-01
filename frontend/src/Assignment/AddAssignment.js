@@ -22,7 +22,7 @@ const AddAssignment = () => {
         }
 
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/assignment/add`, 
+            const res = await fetch(`${process.env.REACT_APP_API_URI}/assignment/add`, 
                 {
                     method: "POST",
                     headers: 
@@ -35,6 +35,10 @@ const AddAssignment = () => {
             );
             const message = res.text();
             setNotification(message);
+
+            // Resets assignment form after successfully adding a new assignment
+            setAssignmentDesc("");
+            setDueDate("");
 
             // Removes notification bar after 2 seconds
             setTimeout(() => {

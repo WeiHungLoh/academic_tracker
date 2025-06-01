@@ -15,8 +15,8 @@ const AddAssignment = () => {
         // Decrements month by 1 since month starts from 0
         const localDate = new Date(year, month - 1, day, hour, minute);
 
-        if (examDesc === '' || dueDate === '') {
-            alert('Please enter assignment description and its due date before adding')
+        if (examDesc === '' || dueDate === '' || duration === '') {
+            alert('Please enter assignment description, its due date and duration before adding')
             return;
         }
 
@@ -34,6 +34,11 @@ const AddAssignment = () => {
             );
             const message = res.text();
             setNotification(message);
+
+            // Resets exam form after successfully adding a new exam
+            setExamDesc("");
+            setDueDate("");
+            setDuration("");
 
             // Removes notification bar after 2 seconds
             setTimeout(() => {

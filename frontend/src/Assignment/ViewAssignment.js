@@ -9,9 +9,9 @@ const ViewAssignment = () => {
     const navigate = useNavigate();
     const { data: assignments, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/assignment/view`);
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (assignmentId) => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/assignment/${id}`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/assignment/${assignmentId}`, {
                 method: 'DELETE',
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
@@ -24,6 +24,23 @@ const ViewAssignment = () => {
             alert(error.message);
         }
     };
+
+    const handleDeleteAll = async() => {
+        try {
+            await fetch(`${process.env.REACT_APP_API_URL}/assignment/deleteall`,
+                {
+                    method: 'DELETE',
+                    headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    }
+                }
+            )
+            
+            refetch();
+        } catch (error) {
+            alert(error.message);
+        }
+     }
 
     const toggleStatus = async (assignment) => {
         try {
@@ -73,6 +90,7 @@ const ViewAssignment = () => {
 
             <div className="assignment-button">
                 <button onClick={() => navigate('/addassignment')}>Add new assignment</button>
+                <button onClick={() => handleDeleteAll()}>Delete all assignments</button>
             </div>
         </div>
     );
