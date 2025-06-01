@@ -60,9 +60,15 @@ const ViewAssignment = () => {
         }
     };
 
+    const showAddAssignmentMessage = (assignments) => {
+        return assignments && assignments.length === 0;
+    }
+
     return (
         <div className="assignment-list">
             <h2>Assignment Tracker</h2>
+
+            {showAddAssignmentMessage(assignments) && <div>No assignment found. Start adding one now! </div>}
 
             {assignments && assignments.map(assignment => (
                 <div className="assignment" key={assignment._id}>
@@ -87,6 +93,7 @@ const ViewAssignment = () => {
                     </div>
                 </div>
             ))}
+
 
             <div className="assignment-button">
                 <button onClick={() => navigate('/addassignment')}>Add new assignment</button>
