@@ -41,6 +41,18 @@ router.put("/togglestatus", async (req, res) => {
     }
 });
 
+router.delete("/deleteall", async (req, res) => {
+    // Since assignment object ID has been passed to param, retrieve it
+    const userId = req.user.id;
+
+    try {
+        await Exam.deleteMany({ userId: userId });
+        res.status(200).send("Deleted all assignments");
+    } catch (error) {
+        res.status(500).send("Error deleting assignment");
+    }
+});
+
 router.delete("/:id", async (req, res) => {
     // Since assignment object ID has been passed to param, retrieve it
     const { id } = req.params;

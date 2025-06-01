@@ -176,6 +176,10 @@
   cursor: pointer;
   padding: 8px 10px;
 }
+.assignment-list .assignment-button, .exam-list .exam-button {
+  display: flex;
+  gap: 10px;
+}
 .assignment-list .assignment-content, .exam-list .exam-content {  
   color: #666;
 }
