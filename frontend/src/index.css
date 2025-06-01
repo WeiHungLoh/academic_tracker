@@ -156,7 +156,7 @@
 }
 .assignment-list .assignment, .exam-list .exam {
   width: 100%;
-  padding: 20px;
+  padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
   display: flex;
 }
@@ -177,19 +177,15 @@
   padding: 8px 10px;
 }
 .assignment-list .assignment-content, .exam-list .exam-content {  
-  margin: 0;
-  font-size: 14px;
   color: #666;
 }
 .assignment-list .assignment-content h2, .exam-list .exam-content h2 {
-  margin: 0;
   font-size: 24px;
   color: black;
 }
 .assignment-list .assignment-content p:last-of-type, .exam-list .exam-content p:last-of-type {
   font-weight: bold;
   color: #f1356d;
-  margin-top: 5px;
 }
 .assignment-list .assignment-button button, .exam-list .exam-button button {
   background-color:#f1356d;

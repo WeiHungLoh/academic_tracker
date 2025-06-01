@@ -80,6 +80,7 @@ const SignUp = () => {
                     Already have an account? Login here
                 </p>
             </form>
+
             <div className="notice-wrapper">
                 <span className="alert-icon">
                     <GoAlertFill />
@@ -88,6 +89,7 @@ const SignUp = () => {
                 please wait up to 30 seconds. This may happen because the backend is hosted on a free tier, 
                 which can take time to wake up after periods of inactivity.
             </div>
+
             <Notification message={notification} />
         </div>
     );

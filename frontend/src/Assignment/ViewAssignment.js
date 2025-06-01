@@ -61,17 +61,9 @@ const ViewAssignment = () => {
                     </div>
 
                     <div className="button-group">
-                        <button onClick={() => toggleStatus(assignment)} style={{
-                            backgroundColor: assignment.status ? 'green' : '#f1356d',
-                            color: 'white',
-                            border: '0',
-                            padding: '8px 10px',
-                            borderRadius: '10px',
-                            cursor: 'pointer'
-                        }}>
+                        <button onClick={() => toggleStatus(assignment)}>
                             {assignment.status ? 'Mark as incomplete' : 'Mark as complete'}
                         </button>
-
                         <button onClick={() => handleDelete(assignment._id)}>
                             Delete
                         </button>

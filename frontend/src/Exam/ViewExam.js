@@ -62,17 +62,9 @@ const ViewExam = () => {
                     </div>
 
                     <div className="button-group">
-                        <button onClick={() => toggleStatus(exam)} style={{
-                            backgroundColor: exam.status ? 'green' : '#f1356d',
-                            color: 'white',
-                            border: '0',
-                            padding: '8px 10px',
-                            borderRadius: '10px',
-                            cursor: 'pointer'
-                        }}>
+                        <button onClick={() => toggleStatus(exam)}>
                             {exam.status ? 'Mark as incomplete' : 'Mark as complete'}
                         </button>
-
                         <button onClick={() => handleDelete(exam._id)}>
                             Delete
                         </button>
