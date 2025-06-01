@@ -60,9 +60,15 @@ const ViewExam = () => {
         }
     };
 
+    const showAddExamMessage = (exams) => {
+        return exams && exams.length === 0;
+    }
+    
     return (
         <div className="exam-list">
             <h2>Exam Tracker</h2>
+
+            {showAddExamMessage(exams) && <div>No exam found. Start adding one now!</div>}
 
             {exams && exams.map(exam => (
                 <div className="exam" key={exam._id}>
