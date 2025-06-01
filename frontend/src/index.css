@@ -178,7 +178,7 @@
 }
 .assignment-list .assignment-button, .exam-list .exam-button {
   display: flex;
-  gap: 10px;
+  gap: 70px;
 }
 .assignment-list .assignment-content, .exam-list .exam-content {  
   color: #666;
