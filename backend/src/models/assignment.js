@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+const mongoose = require('mongoose')
+const { Schema, model } = mongoose
 
 const assignmentSchema = new Schema({
   assignmentDesc: {
     type: String,
-    required: true,
+    required: true
   },
   dueDate: {
     type: Date,
@@ -12,14 +12,14 @@ const assignmentSchema = new Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true
   },
   status: {
     type: Boolean,
     default: false
   }
-});
+})
 
-const assignmentModel = model('Assignment', assignmentSchema);
-module.exports = assignmentModel;
+const assignmentModel = model('Assignment', assignmentSchema)
+module.exports = assignmentModel

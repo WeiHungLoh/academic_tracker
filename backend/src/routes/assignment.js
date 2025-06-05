@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express.Router();
-const Assignment = require("../models/assignment");
+const express = require('express')
+const router = express.Router()
+const Assignment = require('../models/assignment')
 
-router.post("/add", async (req, res) => {
-    const { assignmentDesc, dueDate } = req.body;
+router.post('/add', async (req, res) => {
+    const { assignmentDesc, dueDate } = req.body
     // Retrieves userId that has been created at sign in and verified 
     const userId = req.user.id;
     try {

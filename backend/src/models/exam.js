@@ -1,10 +1,10 @@
-const mongoose = require("mongoose");
-const { Schema, model } = mongoose;
+const mongoose = require('mongoose')
+const { Schema, model } = mongoose
 
 const examSchema = new Schema({
   examDesc: {
     type: String,
-    required: true,
+    required: true
   },
   dueDate: {
     type: Date,
@@ -16,14 +16,14 @@ const examSchema = new Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User',
     required: true
   },
   status: {
     type: Boolean,
     default: false
   }
-});
+})
 
-const examModel = model('Exam', examSchema);
-module.exports = examModel;
+const examModel = model('Exam', examSchema)
+module.exports = examModel
