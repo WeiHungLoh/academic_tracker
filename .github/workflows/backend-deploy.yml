@@ -6,6 +6,10 @@ on:
   pull_requests:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  statuses: write
+
 jobs:
   run-lint:
     name: Run Super-Linter on /backend/src
