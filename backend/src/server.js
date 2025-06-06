@@ -1,11 +1,12 @@
 // Represents an entry point to mount backend components like models and routes
-const express = require('express')
-const cors = require('cors')
-const connectDB = require('./db')
-const verifyToken = require('./middleware/verifyToken')
-const authRoutes = require('./routes/auth')
-const examRoutes = require('./routes/exam')
-const assignmentRoutes = require('./routes/assignment')
+import express from 'express'
+import cors from 'cors'
+import connectDB from './db.js'
+import verifyToken from './middleware/verifyToken.js'
+import authRoutes from './routes/auth.js'
+import examRoutes from './routes/exam.js'
+import assignmentRoutes from './routes/assignment.js'
+import pingRoute from './routes/ping.js'
 
 const startServer = async () => {
     await connectDB()
@@ -13,6 +14,7 @@ const startServer = async () => {
     app.use(cors())
     app.use(express.json())
 
+    app.use('/ping', pingRoute)
     app.use('/auth', authRoutes)
     app.use(verifyToken)
 

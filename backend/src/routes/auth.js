@@ -1,9 +1,9 @@
-const express = require('express')
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const User = require('../models/user')
+import express from 'express'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
+import User from '../models/user.js'
+import dotenv from 'dotenv'
 const router = express.Router()
-const dotenv = require('dotenv')
 dotenv.config()
 
 router.post('/signup', async (req, res) => {
@@ -37,7 +37,7 @@ router.post('/signin', async (req, res) => {
         }
 
         const isPasswordMatch = await bcrypt.compare(password, isExistingUser.password)
-        
+
         if (!isPasswordMatch) {
             return res.status(401).json({ message: 'Incorrect password' })
         }
@@ -46,11 +46,11 @@ router.post('/signin', async (req, res) => {
         const userEmail = isExistingUser.email
         const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET
         const ACCESS_TOKEN = jwt.sign(
-            { 
+            {
                 id: userId,
                 email: userEmail
-            }, 
-            ACCESS_TOKEN_SECRET, 
+            },
+            ACCESS_TOKEN_SECRET,
             { expiresIn: '3h' }
         )
         res.status(200).json({ message: 'Successfully signed in', token: ACCESS_TOKEN })
@@ -59,4 +59,4 @@ router.post('/signin', async (req, res) => {
     }
 })
 
-module.exports = router
+export default router

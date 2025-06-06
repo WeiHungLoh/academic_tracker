@@ -1,10 +1,10 @@
-const express = require('express')
+import express from 'express'
+import Exam from '../models/exam.js'
 const router = express.Router()
-const Exam = require('../models/exam')
 
 router.post('/add', async (req, res) => {
     const { examDesc, dueDate, duration } = req.body
-    // Retrieves userId that has been created at sign in and verified 
+    // Retrieves userId that has been created at sign in and verified
     const userId = req.user.id
     try {
         const newExam = new Exam({ examDesc, dueDate, userId, duration })
@@ -34,8 +34,9 @@ router.put('/togglestatus', async (req, res) => {
         const exam = await Exam.findByIdAndUpdate(
             id,
             { status: !currStatus },
+            { new: true }
         )
-        return res.status(200).json({ exam }) 
+        return res.status(200).json({ exam })
     } catch (error) {
         return res.status(500).send('Error toggling completion status')
     }
@@ -63,4 +64,4 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-module.exports = router
+export default router

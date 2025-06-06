@@ -1,10 +1,10 @@
-const express = require('express')
+import express from 'express'
+import Assignment from '../models/assignment.js'
 const router = express.Router()
-const Assignment = require('../models/assignment')
 
 router.post('/add', async (req, res) => {
     const { assignmentDesc, dueDate } = req.body
-    // Retrieves userId that has been created at sign in and verified 
+    // Retrieves userId that has been created at sign in and verified
     const userId = req.user.id
     try {
         const newAssignment = new Assignment({ assignmentDesc, dueDate, userId })
@@ -36,7 +36,7 @@ router.put('/togglestatus', async (req, res) => {
             { status: !currStatus },
             { new: true }
         )
-        return res.status(200).json({ assignment }) 
+        return res.status(200).json({ assignment })
     } catch (error) {
         return res.status(500).send('Error toggling completion status')
     }
@@ -58,11 +58,11 @@ router.delete('/:id', async (req, res) => {
     const { id } = req.params
 
     try {
-        const assignment = await Assignment.findByIdAndDelete(id)
+        await Assignment.findByIdAndDelete(id)
         res.status(200).send('Deleted assignment')
     } catch (error) {
         res.status(500).send('Error deleting assignment')
     }
 })
 
-module.exports = router
+export default router

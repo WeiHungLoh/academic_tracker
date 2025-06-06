@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken')
+import jwt from 'jsonwebtoken'
 const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET
 
 const verifyToken = (req, res, next) => {
@@ -19,8 +19,8 @@ const verifyToken = (req, res, next) => {
     req.user = decoded
     next()
   } catch (err) {
-    return res.status(401).send('Access token invalid or expired. Please login again')
+    return res.status(401).send(err.message)
   }
 }
 
-module.exports = verifyToken
+export default verifyToken
