@@ -10,6 +10,9 @@ const SignIn = () => {
     const navigate = useNavigate();
     const [visible, setVisiblity] = useState(false);
 
+    // Dummy fetch request to wake backend hosted on free tier
+    fetch(`${process.env.REACT_APP_API_URL}/ping/ping`)
+
     const handleSignIn = async (e) => {
         e.preventDefault();
         try {
