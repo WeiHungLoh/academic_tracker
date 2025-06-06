@@ -2,8 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "db.js",
+  "type": "module",
   "scripts": {
-      "start": "node server.js"
+    "start": "node src/server.js",
+    "test": "eslint src"
   },
   "keywords": [],
   "author": "",
@@ -16,5 +18,9 @@
     "express": "^5.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.14.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "eslint": "^9.28.0"
   }
 }
