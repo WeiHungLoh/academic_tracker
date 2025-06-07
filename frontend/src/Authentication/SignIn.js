@@ -1,92 +1,92 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { IoMdEyeOff } from "react-icons/io";
-import { IoEye } from "react-icons/io5";
-import { GoAlertFill } from "react-icons/go";
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { IoMdEyeOff } from 'react-icons/io'
+import { IoEye } from 'react-icons/io5'
+import { GoAlertFill } from 'react-icons/go'
 
 const SignIn = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-    const [visible, setVisiblity] = useState(false);
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const navigate = useNavigate()
+    const [visible, setVisiblity] = useState(false)
 
     // Dummy fetch request to wake backend hosted on free tier
     fetch(`${process.env.REACT_APP_API_URL}/ping/ping`)
 
     const handleSignIn = async (e) => {
-        e.preventDefault();
+        e.preventDefault()
         try {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signin`,
                 {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
                 }
-            );
+            )
 
-            const data = await res.json();
+            const data = await res.json()
             if (!res.ok) {
-                alert("Failed to sign in: " + data.message);
-                return;
+                alert('Failed to sign in: ' + data.message)
+                return
             }
 
             // Save access token so we can use it for routes protected by access token
-            localStorage.setItem("token", data.token);
-            navigate("/addassignment");
+            localStorage.setItem('token', data.token)
+            navigate('/addassignment')
         } catch (error) {
-            alert("Failed to sign in! " + error.message);
+            alert('Failed to sign in! ' + error.message)
         }
     }
 
-    const toggleSignUp = async (e) => {
-        navigate("/signup");
+    const toggleSignUp = async () => {
+        navigate('/signup')
     }
 
     const showVisiblity = () => {
-        return visible ? <IoEye /> : <IoMdEyeOff />;
+        return visible ? <IoEye /> : <IoMdEyeOff />
     }
 
     return (
-        <div className="signin">
+        <div className='signin'>
             <h2>Sign in to Academic Tracker</h2>
             <form onSubmit={handleSignIn}>
 
                 <label>Email</label>
                 <input
-                    type="email"
+                    type='email'
                     value={email}
                     onChange={e => setEmail(e.target.value)}
                     required
                 />
 
                 <label>Password</label>
-                <div className="password-wrapper">
+                <div className='password-wrapper'>
                     <input
-                        type={visible ? "text" : "password"}
+                        type={visible ? 'text' : 'password'}
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                         required
                     />
-                    <div className="toggle-visibility" onClick={() => setVisiblity(!visible)}>
-                        {showVisiblity()} 
+                    <div className='toggle-visibility' onClick={() => setVisiblity(!visible)}>
+                        {showVisiblity()}
                     </div>
                 </div>
 
-                <button type="submit">Sign in</button>
+                <button type='submit'>Sign in</button>
                 <p onClick={toggleSignUp}>
                     Don’t have an account? Create one
                 </p>
             </form>
-            <div className="notice-wrapper">
-                <span className="alert-icon">
+            <div className='notice-wrapper'>
+                <span className='alert-icon'>
                     <GoAlertFill />
                 </span>
-                {"  "}If the sign-in process seems to hang after you click the sign in button, 
-                please wait up to 30 seconds. This may happen because the backend is hosted on a free tier, 
+                {'  '}If the sign-in process seems to hang after you click the sign in button,
+                please wait up to 30 seconds. This may happen because the backend is hosted on a free tier,
                 which can take time to wake up after periods of inactivity.
             </div>
         </div>
-    );
-};
+    )
+}
 
-export default SignIn;
+export default SignIn

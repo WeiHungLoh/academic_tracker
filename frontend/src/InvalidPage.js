@@ -7,4 +7,4 @@ const InvalidPage = () => {
     )
 }
 
-export default InvalidPage;
+export default InvalidPage

@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react'
 
 const useFetchData = (collectionName) => {
-    const [data, setData] = useState(null);
-    const [error, setError] = useState("");
+    const [data, setData] = useState(null)
+    const [error, setError] = useState('')
 
     // getData function changes when collectionName changes
     const getData = useCallback(async () => {
@@ -11,27 +11,27 @@ const useFetchData = (collectionName) => {
                 method: 'GET',
                 headers:
                 {
-                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
-            });
+            })
 
-            const actualData = await res.json();
+            const actualData = await res.json()
 
             if (!res.ok) {
-                alert("Data not found");
+                alert('Data not found')
             }
-            setData(actualData);
+            setData(actualData)
         } catch (error) {
-            setError(error.message);
+            setError(error.message)
         }
-    }, [collectionName]);
-    
+    }, [collectionName])
+
     // getData is called whenenever getData changes
     useEffect(() => {
-        getData();
-    }, [getData]);
+        getData()
+    }, [getData])
 
-    return { data, error, refetch: getData };
+    return { data, error, refetch: getData }
 }
 
-export default useFetchData;
+export default useFetchData

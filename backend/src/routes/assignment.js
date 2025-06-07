@@ -11,7 +11,7 @@ router.post('/add', async (req, res) => {
         await newAssignment.save()
         res.status(201).send('Successfully added an assignment!')
     } catch (error) {
-        res.status(500).send('Failed to add a task')
+        res.status(500).send('Failed to add a task ' + error.message)
     }
 })
 
@@ -22,7 +22,7 @@ router.get('/view', async (req, res) => {
         const sortedAssignments = await Assignment.find({ userId }).sort({ dueDate: 1 })
         res.status(200).json(sortedAssignments)
     } catch (error) {
-        res.status(500).send('Failed to load assignments')
+        res.status(500).send('Failed to load assignments ' + error.message)
     }
 })
 
@@ -38,7 +38,7 @@ router.put('/togglestatus', async (req, res) => {
         )
         return res.status(200).json({ assignment })
     } catch (error) {
-        return res.status(500).send('Error toggling completion status')
+        return res.status(500).send('Error toggling completion status ' + error.message)
     }
 })
 
@@ -49,7 +49,7 @@ router.delete('/deleteall', async (req, res) => {
         await Assignment.deleteMany({ userId: userId })
         res.status(200).send('Deleted all assignments')
     } catch (error) {
-        res.status(500).send('Error deleting assignment')
+        res.status(500).send('Error deleting assignment ' + error.message)
     }
 })
 
@@ -61,7 +61,7 @@ router.delete('/:id', async (req, res) => {
         await Assignment.findByIdAndDelete(id)
         res.status(200).send('Deleted assignment')
     } catch (error) {
-        res.status(500).send('Error deleting assignment')
+        res.status(500).send('Error deleting assignment ' + error.message)
     }
 })
 

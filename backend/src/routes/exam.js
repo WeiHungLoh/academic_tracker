@@ -11,7 +11,7 @@ router.post('/add', async (req, res) => {
         await newExam.save()
         res.status(201).send('Successfully added an exam')
     } catch (error) {
-        res.status(500).send('Failed to add an exam')
+        res.status(500).send('Failed to add an exam ' + error.message)
     }
 })
 
@@ -22,7 +22,7 @@ router.get('/view', async (req, res) => {
         const sortedExams = await Exam.find({ userId }).sort({ dueDate: 1 })
         res.status(200).json(sortedExams)
     } catch (error) {
-        res.status(500).send('Failed to load exams')
+        res.status(500).send('Failed to load exams ' + error.message)
     }
 })
 
@@ -38,7 +38,7 @@ router.put('/togglestatus', async (req, res) => {
         )
         return res.status(200).json({ exam })
     } catch (error) {
-        return res.status(500).send('Error toggling completion status')
+        return res.status(500).send('Error toggling completion status ' + error.message)
     }
 })
 
@@ -49,7 +49,7 @@ router.delete('/deleteall', async (req, res) => {
         await Exam.deleteMany({ userId: userId })
         res.status(200).send('Deleted all assignments')
     } catch (error) {
-        res.status(500).send('Error deleting assignment')
+        res.status(500).send('Error deleting assignment ' + error.message)
     }
 })
 
@@ -57,10 +57,10 @@ router.delete('/:id', async (req, res) => {
     // Since assignment object ID has been passed to param, retrieve it
     const { id } = req.params
     try {
-        const exam = await Exam.findByIdAndDelete(id)
+        await Exam.findByIdAndDelete(id)
         res.status(200).send('Deleted exam')
     } catch (error) {
-        res.status(500).send('Error deleting exam')
+        res.status(500).send('Error deleting exam ' + error.message)
     }
 })
 
