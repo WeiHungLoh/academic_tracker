@@ -3,18 +3,21 @@ import { useNavigate } from 'react-router-dom'
 import { IoMdEyeOff } from 'react-icons/io'
 import { IoEye } from 'react-icons/io5'
 import { GoAlertFill } from 'react-icons/go'
+import LoadingSpinner from '../LoadingSpinner.js'
 
 const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const [visible, setVisiblity] = useState(false)
+    const [isPending, setIsPending] = useState(false)
 
     // Dummy fetch request to wake backend hosted on free tier
     fetch(`${process.env.REACT_APP_API_URL}/ping/ping`)
 
     const handleSignIn = async (e) => {
         e.preventDefault()
+        setIsPending(true)
         try {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signin`,
                 {
@@ -27,8 +30,10 @@ const SignIn = () => {
             const data = await res.json()
             if (!res.ok) {
                 alert('Failed to sign in: ' + data.message)
+                setIsPending(false)
                 return
             }
+            setIsPending(false)
 
             // Save access token so we can use it for routes protected by access token
             localStorage.setItem('token', data.token)
@@ -72,7 +77,11 @@ const SignIn = () => {
                     </div>
                 </div>
 
-                <button type='submit'>Sign in</button>
+                {isPending 
+                    ?   <button>Loading...{' '}<LoadingSpinner /> </button>
+                    :   <button type='submit'>Sign in</button>
+                }
+
                 <p onClick={toggleSignUp}>
                     Don’t have an account? Create one
                 </p>

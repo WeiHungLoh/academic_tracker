@@ -4,6 +4,7 @@ import Notification from '../Notification.js'
 import { IoMdEyeOff } from 'react-icons/io'
 import { IoEye } from 'react-icons/io5'
 import { GoAlertFill } from 'react-icons/go'
+import LoadingSpinner from '../LoadingSpinner.js'
 
 const SignUp = () => {
     const [email, setEmail] = useState('')
@@ -11,9 +12,11 @@ const SignUp = () => {
     const navigate = useNavigate()
     const [notification, setNotification] = useState(null)
     const [visible, setVisiblity] = useState(false)
+    const [isPending, setIsPending] = useState(false)
 
     const handleSignUp = async (e) => {
         e.preventDefault()
+        setIsPending(true)
         try {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signup`,
                 {
@@ -27,6 +30,7 @@ const SignUp = () => {
 
             if (!res.ok) {
                 alert('Failed to sign up: ' + message)
+                setIsPending(false)
                 return
             }
 
@@ -35,6 +39,7 @@ const SignUp = () => {
                 setNotification(null)
                 navigate('/')
             }, 1500)
+            setIsPending(false)
         } catch (error) {
             alert('Failed to signed up. ' + error.message)
         }
@@ -74,7 +79,10 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                <button type='submit'>Sign up</button>
+                {isPending 
+                    ?   <button>Loading...{' '}<LoadingSpinner /> </button>
+                    :   <button type='submit'>Sign up</button> 
+                }
 
                 <p onClick={toggleSignIn}>
                     Already have an account? Login here
