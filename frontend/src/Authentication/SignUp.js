@@ -79,9 +79,9 @@ const SignUp = () => {
                     </div>
                 </div>
 
-                {isPending 
+                {isPending
                     ?   <button>Loading...{' '}<LoadingSpinner /> </button>
-                    :   <button type='submit'>Sign up</button> 
+                    :   <button type='submit'>Sign up</button>
                 }
 
                 <p onClick={toggleSignIn}>
