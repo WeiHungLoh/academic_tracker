@@ -69,11 +69,11 @@ const ViewAssignment = () => {
 
             {showAddAssignmentMessage(assignments) && <div>No assignment found. Start adding one now! </div>}
 
-            {assignments && assignments.map(assignment => (
+            {assignments && assignments.map((assignment, index) => (
                 <div className='assignment' key={assignment._id}>
 
                     <div className='assignment-content'>
-                        <h2>{assignment.assignmentDesc}</h2>
+                        <h2>{index + 1}. {assignment.assignmentDesc}</h2>
                         <p>Due Date: { DateFormatter(assignment.dueDate).formattedDate }</p>
                         <p>Time left: { DateFormatter(assignment.dueDate).timeRemaining }</p>
                         <FontAwesomeIcon

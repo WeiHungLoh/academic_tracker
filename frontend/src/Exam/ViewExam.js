@@ -70,11 +70,11 @@ const ViewExam = () => {
 
             {showAddExamMessage(exams) && <div>No exam found. Start adding one now!</div>}
 
-            {exams && exams.map(exam => (
+            {exams && exams.map((exam, index) => (
                 <div className='exam' key={exam._id}>
 
                     <div className='exam-content'>
-                        <h2>{exam.examDesc}</h2>
+                        <h2>{index + 1}. {exam.examDesc}</h2>
                         <p>Due Date: { DateFormatter(exam.dueDate).formattedDate }</p>
                         <p>Duration: { exam.duration } minutes</p>
                         <p>Time left: { DateFormatter(exam.dueDate).timeRemaining }</p>
