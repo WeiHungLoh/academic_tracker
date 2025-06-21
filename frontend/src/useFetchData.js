@@ -26,10 +26,10 @@ const useFetchData = (collectionName) => {
         }
     }, [collectionName])
 
-    // getData is called whenenever getData changes
+    // getData is called whenenever collectionName changes
     useEffect(() => {
         getData()
-    }, [getData])
+    }, [collectionName])
 
     return { data, error, refetch: getData }
 }
