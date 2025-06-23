@@ -4,7 +4,7 @@ import { IoMdEyeOff } from 'react-icons/io'
 import { IoEye } from 'react-icons/io5'
 import { GoAlertFill } from 'react-icons/go'
 import { MdEmail, MdLock } from 'react-icons/md'
-import { HiAcademicCap } from "react-icons/hi2";
+import { HiAcademicCap } from 'react-icons/hi2'
 import LoadingSpinner from '../LoadingSpinner.js'
 import './SignIn.css'
 
