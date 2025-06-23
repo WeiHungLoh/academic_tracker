@@ -52,7 +52,7 @@ const AddAssignment = () => {
 
     return (
         <div className='add-exam'>
-            <h2>Welcome to Exam Tracker</h2>
+            <h2>Add an exam</h2>
 
             <label>Input exam description</label>
             <input

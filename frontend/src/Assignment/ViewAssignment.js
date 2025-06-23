@@ -66,7 +66,7 @@ const ViewAssignment = () => {
 
     return (
         <div className='assignment-list'>
-            <h2>Assignment Tracker</h2>
+            <h2>Assignment Viewer</h2>
 
             {showAddAssignmentMessage(assignments) && <div>No assignment found. Start adding one now! </div>}
 

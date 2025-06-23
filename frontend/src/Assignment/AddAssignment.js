@@ -52,7 +52,7 @@ const AddAssignment = () => {
 
     return (
         <div className='add-assignment'>
-            <h2>Welcome to Assignment Tracker</h2>
+            <h2>Add an assignment</h2>
 
             <label>Input assignment description</label>
             <input

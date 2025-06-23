@@ -66,7 +66,7 @@ const ViewExam = () => {
 
     return (
         <div className='exam-list'>
-            <h2>Exam Tracker</h2>
+            <h2>Exam Viewer</h2>
 
             {showAddExamMessage(exams) && <div>No exam found. Start adding one now!</div>}
 
