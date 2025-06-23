@@ -4,7 +4,10 @@ import Notification from '../Notification.js'
 import { IoMdEyeOff } from 'react-icons/io'
 import { IoEye } from 'react-icons/io5'
 import { GoAlertFill } from 'react-icons/go'
+import { MdEmail, MdLock } from 'react-icons/md'
+import { HiAcademicCap } from "react-icons/hi2";
 import LoadingSpinner from '../LoadingSpinner.js'
+import './SignUp.css'
 
 const SignUp = () => {
     const [email, setEmail] = useState('')
@@ -55,19 +58,24 @@ const SignUp = () => {
 
     return (
         <div className='signup'>
+            <HiAcademicCap className='logo-icon' />
             <h2>Sign up for Academic Tracker</h2>
             <form onSubmit={handleSignUp}>
 
                 <label>Email</label>
-                <input
-                    type='email'
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required
-                />
+                <div className='input-box'>
+                    <MdEmail className='left-icon' />
+                    <input
+                        type='email'
+                        value={email}
+                        onChange={e => setEmail(e.target.value)}
+                        required
+                    />
+                </div>
 
                 <label>Password</label>
                 <div className='password-wrapper'>
+                    <MdLock className="left-icon" />
                     <input
                         type={visible ? 'text' : 'password'}
                         value={password}
@@ -80,8 +88,8 @@ const SignUp = () => {
                 </div>
 
                 {isPending
-                    ?   <button>Loading...{' '}<LoadingSpinner /> </button>
-                    :   <button type='submit'>Sign up</button>
+                    ? <button>Loading...{' '}<LoadingSpinner /> </button>
+                    : <button type='submit'>Sign up</button>
                 }
 
                 <p onClick={toggleSignIn}>
