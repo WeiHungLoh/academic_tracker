@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Notification from '../Notification.js'
+import './AddExam.css'
 
 const AddAssignment = () => {
     const [examDesc, setExamDesc] = useState('')

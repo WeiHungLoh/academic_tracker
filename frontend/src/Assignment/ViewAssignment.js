@@ -3,6 +3,7 @@ import useFetchData from '../useFetchData.js'
 import DateFormatter from '../Formatter/DateFormatter.js'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import './ViewAssignment.css'
 
 const ViewAssignment = () => {
     const navigate = useNavigate()

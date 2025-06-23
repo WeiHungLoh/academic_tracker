@@ -1,9 +1,9 @@
 import { useNavigate } from 'react-router-dom'
 import useFetchData from '../useFetchData.js'
 import DateFormatter from '../Formatter/DateFormatter.js'
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import './ViewExam.css'
 
 const ViewExam = () => {
     const navigate = useNavigate()

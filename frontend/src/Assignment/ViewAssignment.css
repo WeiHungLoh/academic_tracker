@@ -1,0 +1,56 @@
+.assignment-list {
+  max-width: 690px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.assignment-list .assignment {
+  width: 100%;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  gap: 50px;
+}
+.assignment-list .button-group {
+  margin-left: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color:#fff;
+  gap: 10px;
+  flex: 0 0 165px;
+}
+.assignment-list .button-group button {
+  background-color:#f1356d;
+  border: 0;
+  border-radius: 10px;
+  color:#fff;
+  cursor: pointer;
+  padding: 8px 10px;
+}
+.assignment-list .assignment-button {
+  display: flex;
+  gap: 70px;
+}
+.assignment-list .assignment-content {  
+  color: #666;
+  word-break: break-all;
+}
+.assignment-list .assignment-content h2 {
+  font-size: 24px;
+  color: black;
+}
+.assignment-list .assignment-content p:last-of-type {
+  font-weight: bold;
+  color: #f1356d;
+}
+.assignment-list .assignment-button button {
+  background-color:#f1356d;
+  border: 0;
+  border-radius: 10px;
+  color:#fff;
+  cursor: pointer;
+  padding: 8px 10px;
+  margin-top: 20px;
+}

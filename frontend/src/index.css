@@ -2,64 +2,8 @@
 * {
   font-family: quicksand;
 }
-.signin, .signup {
-  max-width: 400px;
-  padding: 20px;
-  margin: auto;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 0 10px rgba(0, 0, 0, 0.1);
-}
-.signin h2, .signup h2 {
-  font-size: 24px;
-  color: #f1356d;
-  text-align: center;
-  margin-bottom: 30px;
-}
-.signin input, .signup input {
-  width: 95%;
-  padding: 10px;
-  margin-top: 15px;
-  margin-bottom: 20px;
-  border: 1.5px solid #ddd;
-  border-radius: 10px;
-  font-size: 16px;
-}
-.signin button, .signup button {
-  width: 100%;
-  padding: 10px;
-  background-color: #f1356d;
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.signin button:hover, .signup button:hover {
-  background-color: #d12b5a;
-}
-.signin p, .signup p {
-  cursor: pointer;
-  text-align: center;
-  color: #007BFF;
-  margin-top: 20px;
-}
-.signin .password-wrapper, .signup .password-wrapper {
-  position: relative;
-}
-.signin .toggle-visibility, .signup .toggle-visibility {
-  position: absolute;
-  top: 40%;
-  right: 10px;
-  cursor: pointer;
-}
-.signin .notice-wrapper, .signup .notice-wrapper {
-  background-color: #e6f4ff;
-  color: #084298;
-  border-left: 4px solid #0d6efd;
-  padding-left: 10px;
-}
+
+/* Navigation Bar */
 .navbar {
   display: flex;
   align-items: center;
@@ -71,23 +15,12 @@
   margin-left: auto;
   display: flex;
 }
-.navbar .assignment-wrapper, .navbar .exam-wrapper {
-  position: relative;
+.navbar a:hover {
+  color: #f1356d;
 }
-.navbar .assignment-wrapper .assignment-dropdown,
-.navbar .exam-wrapper .exam-dropdown {
-  display: none;
-}
-.navbar .assignment-wrapper:hover .assignment-dropdown,
-.navbar .exam-wrapper:hover .exam-dropdown {
-  text-decoration: none;
-  margin-left: 50px;
-  display: flex;
-  box-shadow: 10 10px 10px rgba(0,0,0,0.15);
-  padding: 2px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  position: absolute;
+.navbar h1 {
+  color: #4a148c;
+  font-size: 25px;
 }
 .navbar .active {
   color: red;
@@ -99,110 +32,8 @@
   margin-left: 50px;
   text-decoration: none;
 }
-.navbar a:hover {
-  color: #f1356d;
-}
-.navbar h1 {
-  color: #4a148c;
-  font-size: 25px;
-}
-.add-assignment, .add-exam {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-.add-assignment label, .add-exam label {
-  justify-content: left;
-  display: flex;
-}
-.add-assignment h2, .add-exam h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-.add-assignment input, .add-exam input {
-  width: 100%;
-  padding: 6px 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border: 1.5px solid #ddd;
-}
-.add-assignment .submit-button, .add-exam .submit-button {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-  gap: 70px; 
-}
-.add-assignment button, .add-exam button {
-  color:#ddd;
-  background:#f1356d;
-  border: 0;
-  padding: 8px 10px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.notification {
-  background-color: #4caf50;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 8px;
-  margin-top: 30px;
-}
-.assignment-list, .exam-list {
-  max-width: 690px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.assignment-list .assignment, .exam-list .exam {
-  width: 100%;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  gap: 50px;
-}
-.assignment-list .button-group, .exam-list .button-group {
-  margin-left: auto;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color:#fff;
-  gap: 10px;
-  flex: 0 0 165px;
-}
-.assignment-list .button-group button, .exam-list .button-group button {
-  background-color:#f1356d;
-  border: 0;
-  border-radius: 10px;
-  color:#fff;
-  cursor: pointer;
-  padding: 8px 10px;
-}
-.assignment-list .assignment-button, .exam-list .exam-button {
-  display: flex;
-  gap: 70px;
-}
-.assignment-list .assignment-content, .exam-list .exam-content {  
-  color: #666;
-  word-break: break-all;
-}
-.assignment-list .assignment-content h2, .exam-list .exam-content h2 {
-  font-size: 24px;
-  color: black;
-}
-.assignment-list .assignment-content p:last-of-type, .exam-list .exam-content p:last-of-type {
-  font-weight: bold;
-  color: #f1356d;
-}
-.assignment-list .assignment-button button, .exam-list .exam-button button {
-  background-color:#f1356d;
-  border: 0;
-  border-radius: 10px;
-  color:#fff;
-  cursor: pointer;
-  padding: 8px 10px;
-  margin-top: 20px;
-}
+
+/* Invalid Page */
 .invalid-page {
   font-size: 20px;
   text-align: center;
@@ -212,4 +43,13 @@
 .invalid-page a {
   text-decoration: none;
   color: #007BFF
+}
+
+/* Notification */
+.notification {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 30px;
 }
