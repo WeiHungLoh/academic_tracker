@@ -11,7 +11,6 @@ Academic Tracker is a MERN stack (MongoDB, Express, React, Node.js) web applicat
 - View all upcoming assignments and exams in a timeline format  
 - Real-time countdown timers for better time awareness  
 - Secure authentication using JWT and password hashing  
-- Built with the same backend structure and CI/CD workflows as [Job Tracker](https://jobtracker-whloh.netlify.app/)
 
 ## Live Demo
 
