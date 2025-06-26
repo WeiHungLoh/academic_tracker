@@ -2,7 +2,8 @@
 import express from 'express'
 import cors from 'cors'
 import connectDB from './db.js'
-import verifyToken from './middleware/verifyToken.js'
+import cookieJWTAuth from './middleware/cookieJWTAuth.js'
+import cookieParser from 'cookie-parser'
 import authRoutes from './routes/auth.js'
 import examRoutes from './routes/exam.js'
 import assignmentRoutes from './routes/assignment.js'
@@ -11,16 +12,20 @@ import pingRoute from './routes/ping.js'
 const startServer = async () => {
     await connectDB()
     const app = express()
-    app.use(cors())
+    app.use(cors({
+        origin: process.env.NODE_ENV === 'production'
+            ? 'https://academictracker-whloh.netlify.app' : 'http://localhost:3000',
+        credentials: true
+    }))
     app.use(express.json())
+    app.use(cookieParser())
 
     app.use('/ping', pingRoute)
     app.use('/auth', authRoutes)
-    app.use(verifyToken)
 
     // Routes below are protected
-    app.use('/exam', examRoutes)
-    app.use('/assignment', assignmentRoutes)
+    app.use('/exam', cookieJWTAuth, examRoutes)
+    app.use('/assignment', cookieJWTAuth, assignmentRoutes)
 
     const PORT = process.env.PORT || 5005
     app.listen(PORT, () => {

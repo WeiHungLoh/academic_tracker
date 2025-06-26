@@ -13,9 +13,7 @@ const ViewAssignment = () => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/assignment/${assignmentId}`, {
                 method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
+                credentials: 'include',
             })
 
             // Refreshes UI to show remaining undeleted assignments
@@ -30,9 +28,7 @@ const ViewAssignment = () => {
             await fetch(`${process.env.REACT_APP_API_URL}/assignment/deleteall`,
                 {
                     method: 'DELETE',
-                    headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
+                    credentials: 'include'
                 }
             )
 
@@ -46,10 +42,8 @@ const ViewAssignment = () => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/assignment/togglestatus`, {
                 method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
+                credentials: 'include',
+                headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify({ assignment })
             })
 

@@ -25,11 +25,8 @@ const AddAssignment = () => {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/add`,
                 {
                     method: 'POST',
-                    headers:
-                    {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    },
+                    credentials: 'include',
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ examDesc, dueDate: localDate, duration })
                 }
             )

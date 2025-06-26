@@ -25,6 +25,7 @@ const SignIn = () => {
             const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signin`,
                 {
                     method: 'POST',
+                    credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
                 }
@@ -39,7 +40,6 @@ const SignIn = () => {
             setIsPending(false)
 
             // Save access token so we can use it for routes protected by access token
-            localStorage.setItem('token', data.token)
             navigate('/addassignment')
         } catch (error) {
             alert('Failed to sign in! ' + error.message)

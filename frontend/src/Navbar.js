@@ -19,8 +19,11 @@ const Navbar = () => {
         return false
     }
 
-    const handleSignOut = () => {
-        localStorage.removeItem('token')
+    const handleSignOut = async () => {
+        await fetch(`${process.env.REACT_APP_API_URL}/auth/logout`, {
+            method: 'GET',
+            credentials: 'include',
+        })
         navigate('/')
     }
 

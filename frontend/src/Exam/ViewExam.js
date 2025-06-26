@@ -13,9 +13,7 @@ const ViewExam = () => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {
                 method: 'DELETE',
-                headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                }
+                credentials: 'includera'
             })
 
             // Refreshes UI to show remaining undeleted exams
@@ -30,9 +28,7 @@ const ViewExam = () => {
             await fetch(`${process.env.REACT_APP_API_URL}/exam/deleteall`,
                 {
                     method: 'DELETE',
-                    headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                    }
+                    credentials: 'include'
                 }
             )
 
@@ -46,10 +42,8 @@ const ViewExam = () => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/exam/togglestatus`, {
                 method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
+                credentials: 'include',
+                headers: { 'Content-type': 'application/json' },
                 body: JSON.stringify({ exam })
             })
 
