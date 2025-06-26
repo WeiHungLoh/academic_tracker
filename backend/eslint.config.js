@@ -24,7 +24,7 @@ export default defineConfig([
       'no-trailing-spaces': 'error',
       'space-before-function-paren': ['error', 'always'],
       'eol-last': ['error', 'always'],
-      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }]
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
 		},
 	},
 ])

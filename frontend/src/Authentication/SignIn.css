@@ -7,6 +7,7 @@
   box-shadow: 0px 0 10px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.5s ease-in-out;
 }
+
 @keyframes fadeIn {
   from { 
     opacity: 0; 
@@ -17,18 +18,21 @@
     transform: translateY(0); 
   }
 }
+
 .signin .logo-icon {
   font-size: 40px;
   color: #d12b5a;
   display: flex;
   margin: auto;
 }
+
 .signin h2 {
   font-size: 24px;
   color: #f1356d;
   text-align: center;
   margin-top: 10px;
 }
+
 .signin .input-box, .password-wrapper {
   display: flex;
   align-items: center;
@@ -39,6 +43,7 @@
   background: #fff;
   margin-top: 10px;
 }
+
 .signin .input-box input, .signin .password-wrapper input {
   border: none;
   outline: none;
@@ -47,9 +52,11 @@
   font-size: inherit;
   background: transparent;
 }
+
 .signin .left-icon {    
   color: #aaa;
 }
+
 .signin button {
   width: 100%;
   padding: 10px;
@@ -61,30 +68,36 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .signin button:hover {
   background-color: #d12b5a;
 }
+
 .signin p {
   cursor: pointer;
   text-align: center;
   color: #007BFF;
   margin-top: 20px;
 }
+
 .signin .password-wrapper {
   position: relative;
 }
+
 .signin .toggle-visibility {
   position: absolute;
   right: 10px;
   top: 39%;
   cursor: pointer;
 }
+
 .signin .notice-wrapper {
   background-color: #e6f4ff;
   color: #084298;
   border-left: 4px solid #0d6efd;
   padding-left: 10px;
 }
+
 .signin .ug-link {
   background-color: #0d6efd;     
   color: white;                   
@@ -97,6 +110,7 @@
   letter-spacing: 0.5px;
   text-decoration: none;
 }
+
 .signin .ug-link:hover {
   background-color: #007BFF;
 }

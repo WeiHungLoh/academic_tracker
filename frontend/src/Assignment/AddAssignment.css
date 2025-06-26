@@ -3,14 +3,17 @@
   margin: 0 auto;
   text-align: center;
 }
+
 .add-assignment label {
   justify-content: left;
   display: flex;
 }
+
 .add-assignment h2 {
   font-size: 24px;
   margin-bottom: 20px;
 }
+
 .add-assignment input {
   width: 100%;
   padding: 6px 10px;
@@ -18,12 +21,14 @@
   margin-bottom: 10px;
   border: 1.5px solid #ddd;
 }
+
 .add-assignment .submit-button {
   display: flex;
   justify-content: center;
   margin-top: 20px;
   gap: 70px; 
 }
+
 .add-assignment button {
   color:#ddd;
   background:#f1356d;
