@@ -16,7 +16,9 @@ const SignIn = () => {
     const [isPending, setIsPending] = useState(false)
 
     // Dummy fetch request to wake backend hosted on free tier
-    fetch(`${process.env.REACT_APP_API_URL}/ping/ping`)
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/ping/ping`)
+    }, [])
 
     const handleSignIn = async (e) => {
         e.preventDefault()
