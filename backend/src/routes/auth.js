@@ -79,6 +79,7 @@
             jwt.verify(token, process.env.ACCESS_TOKEN_SECRET)
             res.status(200).json({ message: 'Authenticated user' })
         } catch (error) {
+            res.clearCookie('token')
             res.status(404).json({ message: 'Invalid token. Please login' })
         }
     })
