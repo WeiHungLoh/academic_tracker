@@ -1,5 +1,5 @@
 # Academic Tracker
-
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6679f6df-f700-4810-ba89-e4be9af6c1d1/deploy-status)](https://app.netlify.com/projects/academictracker-whloh/deploys)
 ## Overview
 
 Academic Tracker is a MERN stack (MongoDB, Express, React, Node.js) web application designed to help students stay on top of their academic deadlines. It allows users to add assignments and exams, each with key details, and view upcoming tasks in a structured interface with real-time countdowns.
