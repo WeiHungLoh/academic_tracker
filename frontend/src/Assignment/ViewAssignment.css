@@ -1,5 +1,5 @@
 .assignment-list {
-  max-width: 690px;
+  max-width: 750px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@
   align-items: center;
   color:#fff;
   gap: 10px;
-  flex: 0 0 165px;
+  width: 220px;
 }
 
 .assignment-list .button-group button {
