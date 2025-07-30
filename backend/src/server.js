@@ -12,9 +12,19 @@ import pingRoute from './routes/ping.js'
 const startServer = async () => {
     await connectDB()
     const app = express()
+    const allowedOrigins = [
+        'https://academictracker-whloh.netlify.app',
+        'http://localhost:3000'
+    ]
     app.use(cors({
-        origin: process.env.NODE_ENV === 'production'
-            ? 'https://academictracker-whloh.netlify.app' : 'http://localhost:3000',
+        // Taken from: https://article.arunangshudas.com/7-tips-for-managing-cors-in-your-backend-applications-a4341385110c
+        origin: (origin, callback) => {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true)
+            } else {
+                callback(null, false)
+            }
+        },
         credentials: true
     }))
     app.use(express.json())
