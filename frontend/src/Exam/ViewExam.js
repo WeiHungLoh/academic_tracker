@@ -13,7 +13,7 @@ const ViewExam = () => {
         try {
             await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {
                 method: 'DELETE',
-                credentials: 'includera'
+                credentials: 'include'
             })
 
             // Refreshes UI to show remaining undeleted exams
