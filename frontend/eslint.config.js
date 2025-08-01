@@ -5,25 +5,25 @@ import reactPlugin from 'eslint-plugin-react'
 import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
-	{
-		files: ['**/*.js'],
-		plugins: {
-			js,
+  {
+    files: ['**/*.js'],
+    plugins: {
+      js,
       react: reactPlugin
-		},
+    },
     languageOptions: {
       // Enables parsing of div of every component
       // Taken from: https://eslint.org/docs/latest/use/configure/parser#configure-a-custom-parser
       parser: babelParser,
-			parserOptions: {
-				requireConfigFile: false,
-				babelOptions: {
-					babelrc: false,
-					configFile: false,
-					presets: ['@babel/preset-env', '@babel/preset-react'],
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          babelrc: false,
+          configFile: false,
+          presets: ['@babel/preset-env', '@babel/preset-react'],
           plugins: ['@babel/plugin-syntax-jsx']
-				},
-			},
+        },
+      },
       // Ignores errors pertaining to 'console', 'process' etc not being defined
       globals: {
         console: 'readonly',
@@ -32,6 +32,7 @@ export default defineConfig([
         alert: 'readonly',
         setTimeout: 'readonly',
         document: 'readonly',
+        clearTimeout: 'readonly',
       },
     },
     settings: {
@@ -39,13 +40,13 @@ export default defineConfig([
         version: 'detect' // or '19.1.0'
       }
     },
-		rules: {
+    rules: {
       ...js.configs.recommended.rules,
       ...reactPlugin.configs.recommended.rules,
       // [rule severity, style to enforce]
       'react/prop-types': 'off',
       'react/react-in-jsx-scope': 'off',
-			'no-unused-vars': 'warn',
+      'no-unused-vars': 'warn',
       'quotes': ['error', 'single'],
       'semi': ['error', 'never'],
       'no-trailing-spaces': 'error',
@@ -55,7 +56,15 @@ export default defineConfig([
         asyncArrow: 'always'      // for async () => {}
       }],
       'eol-last': ['error', 'always'],
-      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }]
-		},
-	},
+      'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 1 }],
+      // Taken from: https://eslint.org/docs/latest/rules/sort-imports#rule-details
+      'sort-imports': ['error', {
+        'ignoreCase': false,
+        'ignoreDeclarationSort': false,
+        'ignoreMemberSort': false,
+        'memberSyntaxSortOrder': ['none', 'all', 'multiple', 'single'],
+        'allowSeparatedGroups': false
+      }]
+    },
+  },
 ]);
