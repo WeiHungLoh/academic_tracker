@@ -11,7 +11,7 @@
   padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
   display: flex;
-  gap: 50px;
+  position: relative;
 }
 
 .assignment-list .button-group {
@@ -19,16 +19,16 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  color:#fff;
+  color: #fff;
   gap: 10px;
   width: 220px;
 }
 
 .assignment-list .button-group button {
-  background-color:#f1356d;
+  background-color: #f1356d;
   border: 0;
   border-radius: 10px;
-  color:#fff;
+  color: #fff;
   cursor: pointer;
   padding: 8px 10px;
 }
@@ -38,9 +38,10 @@
   gap: 70px;
 }
 
-.assignment-list .assignment-content {  
+.assignment-list .assignment-content {
   color: #666;
   word-break: break-all;
+  width: 500px;
 }
 
 .assignment-list .assignment-content h2 {
@@ -48,17 +49,75 @@
   color: black;
 }
 
-.assignment-list .assignment-content p:last-of-type {
+.assignment-list .assignment-content p:nth-last-of-type(2) {
   font-weight: bold;
-  color: #f1356d;
+  color: black;
 }
 
 .assignment-list .assignment-button button {
-  background-color:#f1356d;
+  background-color: #f1356d;
   border: 0;
   border-radius: 10px;
-  color:#fff;
+  color: #fff;
   cursor: pointer;
   padding: 8px 10px;
   margin-top: 20px;
+}
+
+.assignment-list .complete {
+  background-color: green;
+  width: fit-content;
+  padding: 4px 20px;
+  color: white;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.assignment-list .incomplete {
+  background-color: #f1356d;
+  width: fit-content;
+  padding: 4px 20px;
+  color: white;
+  letter-spacing: 0.5px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.assignment-list .filter-option {
+  font-size: 12px;
+  position: absolute;
+  right: 350px;
+  top: 105px;
+  text-align: center;
+}
+
+.assignment-list .filter-option select {
+  background: #e0f0ff;
+  color: #003366;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.assignment-list .notes textarea {
+  position: absolute;
+  right: -330px;
+  top: 15px;
+  height: 89%;
+  width: 300px;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 2px solid #fbc02d;
+  background-color: #fff9c4;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  resize: none;
+  outline: none;
+  box-sizing: border-box;
 }

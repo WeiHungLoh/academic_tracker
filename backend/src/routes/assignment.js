@@ -1,5 +1,5 @@
-import express from 'express'
 import Assignment from '../models/assignment.js'
+import express from 'express'
 const router = express.Router()
 
 router.post('/add', async (req, res) => {
@@ -39,6 +39,21 @@ router.put('/togglestatus', async (req, res) => {
         return res.status(200).json({ assignment })
     } catch (error) {
         return res.status(500).send('Error toggling completion status ' + error.message)
+    }
+})
+
+router.put('/editnotes', async (req, res) => {
+    const { assignmentId, notes } = req.body
+
+    try {
+        await Assignment.findByIdAndUpdate(
+            assignmentId,
+            { notes },
+            { new: true }
+        )
+        res.status(200).send('Updated notes')
+    } catch (error) {
+        res.status(500).send('Error updating notes ' + error.message)
     }
 })
 
