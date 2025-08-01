@@ -22,6 +22,10 @@ const examSchema = new Schema({
   status: {
     type: Boolean,
     default: false
+  },
+  notes: {
+    type: String,
+    default: ''
   }
 })
 

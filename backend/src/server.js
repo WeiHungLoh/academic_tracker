@@ -1,12 +1,12 @@
 // Represents an entry point to mount backend components like models and routes
-import express from 'express'
-import cors from 'cors'
+import assignmentRoutes from './routes/assignment.js'
+import authRoutes from './routes/auth.js'
 import connectDB from './db.js'
 import cookieJWTAuth from './middleware/cookieJWTAuth.js'
 import cookieParser from 'cookie-parser'
-import authRoutes from './routes/auth.js'
+import cors from 'cors'
 import examRoutes from './routes/exam.js'
-import assignmentRoutes from './routes/assignment.js'
+import express from 'express'
 import pingRoute from './routes/ping.js'
 
 const startServer = async () => {

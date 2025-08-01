@@ -1,13 +1,13 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
+import AddAssignment from './Assignment/AddAssignment.js'
+import AddExam from './Exam/AddExam.js'
+import InvalidPage from './InvalidPage.js'
+import Navbar from './Navbar.js'
+import ProtectedRoutes from './ProtectedRoutes.js'
 import SignIn from './Authentication/SignIn.js'
 import SignUp from './Authentication/SignUp.js'
-import Navbar from './Navbar.js'
-import AddAssignment from './Assignment/AddAssignment.js'
 import ViewAssignment from './Assignment/ViewAssignment.js'
-import AddExam from './Exam/AddExam.js'
 import ViewExam from './Exam/ViewExam.js'
-import ProtectedRoutes from './ProtectedRoutes.js'
-import InvalidPage from './InvalidPage.js'
 
 function App() {
   const location = useLocation()
