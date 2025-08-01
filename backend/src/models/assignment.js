@@ -18,6 +18,10 @@ const assignmentSchema = new Schema({
   status: {
     type: Boolean,
     default: false
+  },
+  notes: {
+    type: String,
+    default: ''
   }
 })
 
