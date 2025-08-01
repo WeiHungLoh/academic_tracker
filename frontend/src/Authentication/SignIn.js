@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { IoMdEyeOff } from 'react-icons/io'
-import { IoEye } from 'react-icons/io5'
-import { GoAlertFill } from 'react-icons/go'
-import { MdEmail, MdLock } from 'react-icons/md'
-import { HiAcademicCap } from 'react-icons/hi2'
-import LoadingSpinner from '../LoadingSpinner.js'
 import './SignIn.css'
+import { MdEmail, MdLock } from 'react-icons/md'
+import { useEffect, useState } from 'react'
+import { GoAlertFill } from 'react-icons/go'
+import { HiAcademicCap } from 'react-icons/hi2'
+import { IoEye } from 'react-icons/io5'
+import { IoMdEyeOff } from 'react-icons/io'
+import LoadingSpinner from '../Icons/LoadingSpinner.js'
+import { useNavigate } from 'react-router-dom'
 
 const SignIn = () => {
     const [email, setEmail] = useState('')

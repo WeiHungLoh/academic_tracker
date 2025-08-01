@@ -49,12 +49,12 @@ const Navbar = () => {
                     Add Assignment
                 </NavLink>
 
-                <NavLink to='/viewassignments' className={isViewAssignmentActive(currLocation) ? 'active' : 'inactive'}>
-                    View Assignments
-                </NavLink>
-
                 <NavLink to='/addexam' className={isAddExamActive(currLocation) ? 'active' : 'inactive'}>
                     Add Exam
+                </NavLink>
+
+                <NavLink to='/viewassignments' className={isViewAssignmentActive(currLocation) ? 'active' : 'inactive'}>
+                    View Assignments
                 </NavLink>
 
                 <NavLink to='/viewexams' className={isViewExamActive(currLocation) ? 'active' : 'inactive'}>

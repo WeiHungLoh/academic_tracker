@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import LoadingSpinner from './LoadingSpinner.js'
+import LoadingSpinner from './Icons/LoadingSpinner.js'
 
 const ProtectedRoutes = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(undefined)
