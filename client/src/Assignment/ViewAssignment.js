@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ViewAssignment = () => {
     const navigate = useNavigate()
-    const { data: assignments, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/assignment/view`)
+    const { data: assignments, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/assignments`)
     const [toggleNotes, setToggleNotes] = useState(false)
     const [status, setStatus] = useState('Show All')
     const [notes, setNotes] = useState({})
@@ -40,7 +40,7 @@ const ViewAssignment = () => {
 
     const handleDelete = async (assignmentId) => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/assignment/${assignmentId}`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/assignments/${assignmentId}`, {
                 method: 'DELETE',
                 credentials: 'include',
             })
@@ -54,7 +54,7 @@ const ViewAssignment = () => {
 
     const handleDeleteAll = async () => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/assignment/deleteall`,
+            await fetch(`${process.env.REACT_APP_API_URL}/assignments`,
                 {
                     method: 'DELETE',
                     credentials: 'include'
@@ -69,7 +69,7 @@ const ViewAssignment = () => {
 
     const toggleStatus = async (assignment) => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/assignment/togglestatus`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/assignments/edit-status/${assignment._id}`, {
                 method: 'PUT',
                 credentials: 'include',
                 headers: { 'Content-type': 'application/json' },
@@ -93,12 +93,12 @@ const ViewAssignment = () => {
 
         showTimeout.current[assignmentId] = setTimeout(async () => {
             try {
-                await fetch(`${process.env.REACT_APP_API_URL}/assignment/editnotes`,
+                await fetch(`${process.env.REACT_APP_API_URL}/assignments/edit-notes/${assignmentId}`,
                     {
                         method: 'PUT',
                         credentials: 'include',
                         headers: { 'Content-type': 'application/json' },
-                        body: JSON.stringify({ assignmentId, notes: editedNotes })
+                        body: JSON.stringify({ notes: editedNotes })
                     }
                 )
             } catch (error) {

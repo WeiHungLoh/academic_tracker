@@ -24,7 +24,7 @@ const SignIn = () => {
         e.preventDefault()
         setIsPending(true)
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/signin`,
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/authentication/signin`,
                 {
                     method: 'POST',
                     credentials: 'include',

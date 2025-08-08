@@ -2,7 +2,7 @@ import Exam from '../models/exam.js'
 import express from 'express'
 const router = express.Router()
 
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     const { examDesc, dueDate, duration } = req.body
     // Retrieves userId that has been created at sign in and verified
     const userId = req.user.id
@@ -15,7 +15,7 @@ router.post('/add', async (req, res) => {
     }
 })
 
-router.get('/view', async (req, res) => {
+router.get('/', async (req, res) => {
     const userId = req.user.id
     try {
         // Finds all assignments for a specific user then sort them in ascending order by dueDate
@@ -26,13 +26,13 @@ router.get('/view', async (req, res) => {
     }
 })
 
-router.put('/togglestatus', async (req, res) => {
+router.put('/edit-status/:examId', async (req, res) => {
     const { exam } = req.body
-    const id = exam._id
+    const { examId } = req.params
     const currStatus = exam.status
     try {
         const exam = await Exam.findByIdAndUpdate(
-            id,
+            examId,
             { status: !currStatus },
             { new: true }
         )
@@ -42,8 +42,9 @@ router.put('/togglestatus', async (req, res) => {
     }
 })
 
-router.put('/editnotes', async (req, res) => {
-    const { examId, notes } = req.body
+router.put('/edit-notes/:examId', async (req, res) => {
+    const { examId } = req.params
+    const { notes } = req.body
 
     try {
         await Exam.findByIdAndUpdate(
@@ -57,7 +58,7 @@ router.put('/editnotes', async (req, res) => {
     }
 })
 
-router.delete('/deleteall', async (req, res) => {
+router.delete('/', async (req, res) => {
     const userId = req.user.id
 
     try {
@@ -68,11 +69,11 @@ router.delete('/deleteall', async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:examId', async (req, res) => {
     // Since assignment object ID has been passed to param, retrieve it
-    const { id } = req.params
+    const { examId } = req.params
     try {
-        await Exam.findByIdAndDelete(id)
+        await Exam.findByIdAndDelete(examId)
         res.status(200).send('Deleted exam')
     } catch (error) {
         res.status(500).send('Error deleting exam ' + error.message)

@@ -68,7 +68,7 @@ router.post('/signin', async (req, res) => {
     }
 })
 
-router.get('/check', async (req, res) => {
+router.get('/token-verification', async (req, res) => {
     const token = req.cookies.token
 
     if (!token) {

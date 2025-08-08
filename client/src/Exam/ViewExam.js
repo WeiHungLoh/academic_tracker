@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const ViewExam = () => {
     const navigate = useNavigate()
-    const { data: exams, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/exam/view`)
+    const { data: exams, refetch } = useFetchData(`${process.env.REACT_APP_API_URL}/exams`)
     const [toggleNotes, setToggleNotes] = useState(false)
     const [status, setStatus] = useState('Show All')
     const [notes, setNotes] = useState({})
@@ -41,7 +41,7 @@ const ViewExam = () => {
 
     const handleDelete = async (id) => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/exam/${id}`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/exams/${id}`, {
                 method: 'DELETE',
                 credentials: 'include'
             })
@@ -55,7 +55,7 @@ const ViewExam = () => {
 
     const handleDeleteAll = async () => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/exam/deleteall`,
+            await fetch(`${process.env.REACT_APP_API_URL}/exams`,
                 {
                     method: 'DELETE',
                     credentials: 'include'
@@ -70,7 +70,7 @@ const ViewExam = () => {
 
     const toggleStatus = async (exam) => {
         try {
-            await fetch(`${process.env.REACT_APP_API_URL}/exam/togglestatus`, {
+            await fetch(`${process.env.REACT_APP_API_URL}/exams/edit-status/${exam._id}`, {
                 method: 'PUT',
                 credentials: 'include',
                 headers: { 'Content-type': 'application/json' },
@@ -94,12 +94,12 @@ const ViewExam = () => {
 
         showTimeout.current[examId] = setTimeout(async () => {
             try {
-                await fetch(`${process.env.REACT_APP_API_URL}/exam/editnotes`,
+                await fetch(`${process.env.REACT_APP_API_URL}/exams/edit-notes/${examId}`,
                     {
                         method: 'PUT',
                         credentials: 'include',
                         headers: { 'Content-type': 'application/json' },
-                        body: JSON.stringify({ examId, notes: editedNotes })
+                        body: JSON.stringify({ notes: editedNotes })
                     }
                 )
             } catch (error) {
