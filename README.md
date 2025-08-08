@@ -1,7 +1,7 @@
 # Academic Tracker
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6679f6df-f700-4810-ba89-e4be9af6c1d1/deploy-status)](https://app.netlify.com/projects/academictracker-whloh/deploys)
 
-![Ui](frontend/images/examviewer.png)
+![Ui](client/images/examviewer.png)
 
 ## Overview
 
