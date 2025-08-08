@@ -7,7 +7,7 @@ const ProtectedRoutes = () => {
 
     const checkIsAuth = async () => {
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/check`, {
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/authentication/token-verification`, {
                 credentials: 'include',
             })
 

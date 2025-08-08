@@ -31,11 +31,11 @@ const startServer = async () => {
     app.use(cookieParser())
 
     app.use('/ping', pingRoute)
-    app.use('/auth', authRoutes)
+    app.use('/authentication', authRoutes)
 
     // Routes below are protected
-    app.use('/exam', cookieJWTAuth, examRoutes)
-    app.use('/assignment', cookieJWTAuth, assignmentRoutes)
+    app.use('/exams', cookieJWTAuth, examRoutes)
+    app.use('/assignments', cookieJWTAuth, assignmentRoutes)
 
     const PORT = process.env.PORT || 5005
     app.listen(PORT, () => {

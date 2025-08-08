@@ -2,7 +2,7 @@ import Assignment from '../models/assignment.js'
 import express from 'express'
 const router = express.Router()
 
-router.post('/add', async (req, res) => {
+router.post('/', async (req, res) => {
     const { assignmentDesc, dueDate } = req.body
     // Retrieves userId that has been created at sign in and verified
     const userId = req.user.id
@@ -15,7 +15,7 @@ router.post('/add', async (req, res) => {
     }
 })
 
-router.get('/view', async (req, res) => {
+router.get('/', async (req, res) => {
     const userId = req.user.id
     try {
         // Finds all assignments for a specific user then sort them in ascending order by dueDate
@@ -26,13 +26,13 @@ router.get('/view', async (req, res) => {
     }
 })
 
-router.put('/togglestatus', async (req, res) => {
+router.put('/edit-status/:assignmentId', async (req, res) => {
     const { assignment } = req.body
-    const id = assignment._id
+    const { assignmentId } = req.params
     const currStatus = assignment.status
     try {
         const assignment = await Assignment.findByIdAndUpdate(
-            id,
+            assignmentId,
             { status: !currStatus },
             { new: true }
         )
@@ -42,8 +42,9 @@ router.put('/togglestatus', async (req, res) => {
     }
 })
 
-router.put('/editnotes', async (req, res) => {
-    const { assignmentId, notes } = req.body
+router.put('/edit-notes/:assignmentId', async (req, res) => {
+    const { notes } = req.body
+    const { assignmentId } = req.params
 
     try {
         await Assignment.findByIdAndUpdate(
@@ -57,7 +58,7 @@ router.put('/editnotes', async (req, res) => {
     }
 })
 
-router.delete('/deleteall', async (req, res) => {
+router.delete('/', async (req, res) => {
     const userId = req.user.id
 
     try {
@@ -68,12 +69,12 @@ router.delete('/deleteall', async (req, res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete('/:assignmentId', async (req, res) => {
     // Since assignment object ID has been passed to param, retrieve it
-    const { id } = req.params
+    const { assignmentId } = req.params
 
     try {
-        await Assignment.findByIdAndDelete(id)
+        await Assignment.findByIdAndDelete(assignmentId)
         res.status(200).send('Deleted assignment')
     } catch (error) {
         res.status(500).send('Error deleting assignment ' + error.message)

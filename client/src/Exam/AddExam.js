@@ -22,7 +22,7 @@ const AddAssignment = () => {
         }
 
         try {
-            const res = await fetch(`${process.env.REACT_APP_API_URL}/exam/add`,
+            const res = await fetch(`${process.env.REACT_APP_API_URL}/exams`,
                 {
                     method: 'POST',
                     credentials: 'include',
